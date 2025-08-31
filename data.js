@@ -1244,7 +1244,7 @@ let flags = {
     // here be encounter flags
     525: ["encount_first_ww", "Tracks the state of the first random Werewire encounter.", enemyStates],
     526: ["encount_first_tasq", "Tracks the state of the first random Tasque encounter, the one that jumps out at you. Then it's reused for like Giga Queen deaths or something, which is a little broken."], // shoutout to Colinator27 for finding the reuse
-    527: ["encount_first_viro", "Tracks the state of the first Virovirokun encounter, the one en route to AGREE2ALL. Also reused for Giga Queen stuff.", enemyStates],
+    527: ["encount_first_viro", "Tracks the state of the first Virovirokun encounter, the one en route to AGREE2ALL. Also reused for Giga Queen stuff, doing Round 1 hitless causes this to be set to 1.", enemyStates],
     528: ["encount_smorgas_2", "Tracks the state of the Smorgasboard 2 encounter.", enemyStates],
     529: ["encount_berdly_1", "Tracks the state of the first Berdly battle. Used to determine if he breaks his arm.", enemyStates],
     530: ["encount_poppup_1", "Tracks the state of the first Poppup encounter, before you meet Noelle.", enemyStates],
@@ -1674,7 +1674,7 @@ let flags = {
              "Uninitialized",
              "1", "2", "3", "4", "5", "6"
           ]],
-    1089: ["cooking_losses", "Times lost at the cooking game (counted by Tenna)."],
+    1089: ["cooking_losses", "Times lost at the cooking game."],
     1090: ["parent_lock_1_scene", "Whether you've completed specifically the introductory scene activating the puzzle for Parental Lock 1.", basicBool],
     1091: ["susie_notice_sword", "Status of Susie noticing Kris has a sword in the minigame if the OddController was obtained.", [
              "Default state",
@@ -1693,7 +1693,7 @@ let flags = {
     1093: ["jailed_cheater", "Whether you confessed to the Zapper that you are cheaters, and went into the highly escapable prison.", basicBool],
     1094: ["parent_lock_1", "Whether you solved the first parental lock in Chapter 3.", basicBool],
     1095: ["parent_lock_2", "Whether you solved the second parental lock in Chapter 3.", basicBool],
-    1096: ["rhythm_game_tries", "Total number of attempts on the rock band game after Board 2 (not replays)."],
+    1096: ["rhythm_game_losses", "Total number of losses on the rock band game."],
     1097: ["idcard_puzz_found", "Whether you found something(?) with the water of the unused ID card puzzle.", basicBool],
     1098: ["cheater_pip_left", "Whether the unused dice-cheating Pippins have fled from being photographed.", basicBool],
     1099: ["lancer_control_num", "Number of Lancer Controllers obtained."],
@@ -2017,8 +2017,8 @@ let flags = {
              "Soda placed",
              "Soda collected"
           ]],
-    1279: ["raise_bat_hard_hiscore", "High score on Raise Up Your Bat, Hard Mode"],
-    1280: ["raise_bat_hard_hirank", "Highest rank on Raise Up Your Bat, Hard Mode", tennaRanks],
+    1279: ["raise_bat_hard_hiscore", "High score on Raise Up Your Bat, Hard Mode. (Unused in Chapter 3)"],
+    1280: ["raise_bat_hard_hirank", "Highest rank on Raise Up Your Bat, Hard Mode. (Unused in Chapter 3)", tennaRanks],
     
 };
 
