@@ -1,129 +1,129 @@
 const basicBool = "checkbox",
-      enemyStates = [
-          "Default state",
-          "Violenced (includes SnowGrave)",
-          "Spared",
-          "Pacified",
-          "In combat (Ch. 1)",
-          "Susie (unused)",
-          "Frozen"
-      ],
-      tennaRanks = {
-          "-1": "?",
-          "0": "Z",
-          "1": "C",
-          "2": "B",
-          "3": "A",
-          "4": "S",
-          "5": "T"
-      },
-      recruits = {
-          // Unrecruitable enemy IDs commented
-          1: "Invalid (1)", // placeholder enemy
-          // 2: "Lancer 1",
-          // 3: "Dummy",
-          // 4: "Ralsei (unused tutorial)",
-          5: "Rudinn",
-          6: "Hathy",
-          // 7: "Clover (unused)",
-          // 9: "C. Round",
-          // 10: "K. Round 1",
-          11: "Ponman",
-          // 12: "Lancer 3 (vs Susie)",
-          13: "Rabbick",
-          14: "Bloxer",
-          15: "Jigsawry",
-          // 16: "Clover 1",
-          // 17: "DoomTank (old Thrash Machine)",
-          // 18: "Lancer 2 (with Susie)",
-          // 19: "Susie (with Lancer)",
-          20: "JEVIL",
-          // 21: "K. Round 2",
-          22: "Rudinn Ranger",
-          23: "Head Hathy",
-          // 25: "King",
-          
-          30: "Ambyu-Lance",
-          31: "Poppup",
-          32: "Tasque",
-          33: "Werewire",
-          34: "Maus",
-          35: "Virovirokun",
-          36: "Swatchling",
-          // 37: "Cap'n",
-          // 38: "K_K",
-          // 39: "Sweet",
-          40: "Werewerewire",
-          // 41: "GrazeTest (dojo?)"
-          42: "Tasque Manager",
-          // 43: "Berdly 1 (coaster)",
-          44: "Mauswheel",
-          // 45: "Rouxls 1 (pirate)",
-          // 46: "Berdly 2",
-          // 47: "Clover 2 (dojo)",
-          // 48: "Queen",
-          // 49: "Spamton",
-          // 50: "Spamton NEO",
-          // 51: "GIGA Queen",
-          // 52: "Jigsaw Joe (dojo)",
-          // 53: "Pipis",
-          
-          54: "Shadowguy",
-          55: "Shuttah",
-          56: "Zapper",
-          57: "Ribbick",
-          58: "Watercooler",
-          59: "Pippins",
-          60: "Elnina",
-          61: "Lanino",
-          // 102: "Rouxls 2 (card)",
-          // 103: "Tenna 2",
-          // 104: "Knight",
-          // 105: "Tenna 1 (doom board)",
-          // 106: "Elnina (dojo, unused)",
-          // 107: "Lanino (dojo, unused)",
-          
-          62: "Guei",
-          63: "Balthizard",
-          64: "Bibliox",
-          65: "Mizzle",
-          66: "Wicabel",
-          67: "Winglade",
-          68: "Organikk",
-          69: "Ms. Mizzle",
-          // 105: "Hammer of Justice",
-          // 106: "???/Sound of Justice",
-          // 107: "Jackenstein",
-          // 108: "Titan",
-          // 109: "Titan Spawn",
-          // 110: "Elnina 2 (dojo)",
-          // 111: "Lanino 2 (dojo)",
-          // 500: "Multiboss Example",
-          // 501: "Multiboss C Example",
-          
-          
-      },
-      flagCount = 2500; // 9999 in Chapter 1, need a method for changing this dynamically (might just fork it lol)
+    enemyStates = [
+        "Default state",
+        "Violenced (includes SnowGrave)",
+        "Spared",
+        "Pacified",
+        "In combat (Ch. 1)",
+        "Susie (unused)",
+        "Frozen"
+    ],
+    tennaRanks = {
+        "-1": "?",
+        "0": "Z",
+        "1": "C",
+        "2": "B",
+        "3": "A",
+        "4": "S",
+        "5": "T"
+    },
+    recruits = {
+        // Unrecruitable enemy IDs commented
+        1: "Invalid (1)", // placeholder enemy
+        // 2: "Lancer 1",
+        // 3: "Dummy",
+        // 4: "Ralsei (unused tutorial)",
+        5: "Rudinn",
+        6: "Hathy",
+        // 7: "Clover (unused)",
+        // 9: "C. Round",
+        // 10: "K. Round 1",
+        11: "Ponman",
+        // 12: "Lancer 3 (vs Susie)",
+        13: "Rabbick",
+        14: "Bloxer",
+        15: "Jigsawry",
+        // 16: "Clover 1",
+        // 17: "DoomTank (old Thrash Machine)",
+        // 18: "Lancer 2 (with Susie)",
+        // 19: "Susie (with Lancer)",
+        20: "JEVIL",
+        // 21: "K. Round 2",
+        22: "Rudinn Ranger",
+        23: "Head Hathy",
+        // 25: "King",
+
+        30: "Ambyu-Lance",
+        31: "Poppup",
+        32: "Tasque",
+        33: "Werewire",
+        34: "Maus",
+        35: "Virovirokun",
+        36: "Swatchling",
+        // 37: "Cap'n",
+        // 38: "K_K",
+        // 39: "Sweet",
+        40: "Werewerewire",
+        // 41: "GrazeTest (dojo?)"
+        42: "Tasque Manager",
+        // 43: "Berdly 1 (coaster)",
+        44: "Mauswheel",
+        // 45: "Rouxls 1 (pirate)",
+        // 46: "Berdly 2",
+        // 47: "Clover 2 (dojo)",
+        // 48: "Queen",
+        // 49: "Spamton",
+        // 50: "Spamton NEO",
+        // 51: "GIGA Queen",
+        // 52: "Jigsaw Joe (dojo)",
+        // 53: "Pipis",
+
+        54: "Shadowguy",
+        55: "Shuttah",
+        56: "Zapper",
+        57: "Ribbick",
+        58: "Watercooler",
+        59: "Pippins",
+        60: "Elnina",
+        61: "Lanino",
+        // 102: "Rouxls 2 (card)",
+        // 103: "Tenna 2",
+        // 104: "Knight",
+        // 105: "Tenna 1 (doom board)",
+        // 106: "Elnina (dojo, unused)",
+        // 107: "Lanino (dojo, unused)",
+
+        62: "Guei",
+        63: "Balthizard",
+        64: "Bibliox",
+        65: "Mizzle",
+        66: "Wicabel",
+        67: "Winglade",
+        68: "Organikk",
+        69: "Ms. Mizzle",
+        // 105: "Hammer of Justice",
+        // 106: "???/Sound of Justice",
+        // 107: "Jackenstein",
+        // 108: "Titan",
+        // 109: "Titan Spawn",
+        // 110: "Elnina 2 (dojo)",
+        // 111: "Lanino 2 (dojo)",
+        // 500: "Multiboss Example",
+        // 501: "Multiboss C Example",
+
+
+    },
+    flagCount = 2500; // 9999 in Chapter 1, need a method for changing this dynamically (might just fork it lol)
 
 
 const consumables = {
-     0: "Empty",
-     1: "Dark Candy",
-     2: "Revive Mint",
-     3: "Glowshard",
-     4: "Manual",
-     5: "Broken Cake (unused)",
-     6: "Top Cake",
-     7: "Spin Cake",
-     8: "Darkburger",
-     9: "Lancer Cookie",
+    0: "Empty",
+    1: "Dark Candy",
+    2: "Revive Mint",
+    3: "Glowshard",
+    4: "Manual",
+    5: "Broken Cake (unused)",
+    6: "Top Cake",
+    7: "Spin Cake",
+    8: "Darkburger",
+    9: "Lancer Cookie",
     10: "Giga Salad",
     11: "Clubs Sandwich",
     12: "Hearts Donut",
     13: "Choco Diamond",
     14: "Fav Sandwich",
     15: "RouxlsRoux",
-    
+
     16: "CD Bagel",
     17: "Mannequin (unused)",
     18: "Kris Tea",
@@ -142,155 +142,155 @@ const consumables = {
     31: "Revive Brite",
     32: "S. POISON",
     33: "Dog Dollar",
-    
+
     34: "TVDinner",
     35: "Pipis",
     36: "FlatSoda",
     37: "TVSlop",
     38: "ExecBuffet",
     39: "DeluxeDinner",
-    
+
     60: "AncientSweet",
     61: "Rhapsotea",
     62: "Scarlixir",
     63: "BitterTear",
-    
+
     64: "<invalid>"
 },
-      weapons = {
-    // Stats in same order as save file: AT, DF, Mag, attack bolts (presumably the thing that you use to time attacks), some unused values (grazeamt, grazesize, boltspeed, itemspecial), element (6 is Cat), element bonus amount.
-    //   name                AT  DF MAG BLT GZ GZ BS IS EL ELM
-     0: ["Empty",            0,  0, 0,  0,  0, 0, 0, 0, 0, 0],
-     1: ["Wood Blade",       0,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-     2: ["Mane Ax",          0,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-     3: ["Red Scarf",        0,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-     4: ["Everybody Weapon", 12, 6, 8,  1,  0, 0, 0, 0, 0, 0],
-     5: ["Spookysword",      2,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-     6: ["Brave Ax",         2,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-     7: ["Devilsknife",      5,  0, 4,  1,  0, 0, 0, 0, 0, 0],
-     8: ["Trefoil",          4,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-     9: ["Ragger",           2,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    10: ["Dainty Scarf",     0,  0, 2,  1,  0, 0, 0, 0, 0, 0],
-    
-    11: ["Twisted Sword",    16, 0, 0,  1,  0, 0, 0, 0, 0, 0],
-    12: ["Snow Ring",        0,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    13: ["Thorn Ring",       14, 0, 12, 1,  0, 0, 0, 0, 0, 0],
-    14: ["Bounce Blade",     2,  1, 0,  1,  0, 0, 0, 0, 0, 0],
-    15: ["Cheer Scarf",      1,  0, 2,  1,  0, 0, 0, 0, 0, 0],
-    16: ["Mecha Saber",      4,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    17: ["Auto Axe",         4,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    18: ["Fiber Scarf",      2,  0, 2,  1,  0, 0, 0, 0, 0, 0],
-    19: ["Ragger 2",         5,  0, -1, 1,  0, 0, 0, 0, 0, 0],
-    20: ["Broken Sword",     0,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    21: ["Puppet Scarf",     10, 0, -6, 1,  0, 0, 0, 0, 0, 0],
-    22: ["Freeze Ring",      4,  0, 4,  1,  0, 0, 0, 0, 0, 0],
-    
-    23: ["Saber10",          6,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    24: ["Toxic Axe",        6,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    25: ["Flex Scarf",       4,  0, 1,  1,  0, 0, 0, 0, 0, 0],
-    26: ["Black Shard",      16, 0, 0,  1,  0, 0, 0, 0, 0, 0],
-    
-    50: ["Jingle Blade",     7,  1, 0,  1,  0, 0, 0, 0, 0, 0],
-    51: ["Scarf Mark",       4,  1, 1,  1,  0, 0, 0, 0, 0, 0],
-    52: ["Justice Axe",      12, 0, 0,  1,  0, 0, 0, 0, 0, 0],
-    53: ["Winglade",         8,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-    54: ["Absorb Ax",        8,  0, 0,  1,  0, 0, 0, 0, 0, 0],
-},
-      armors = {
-    // Stats in same order as save file: AT, DF, Mag, attack bolts (presumably the thing that you use to time attacks), some unused values (grazeamt, grazesize, boltspeed, itemspecial), element (6 is Cat), element bonus amount.
-    //   name               AT DF MAG BLT GZ GZ BS IS EL ELM
-     0: ["Empty",           0, 0, 0,  0,  0, 0, 0, 0, 0, 0   ],
-     1: ["Amber Card",      0, 1, 0,  0,  0, 0, 0, 0, 0, 0   ],
-     2: ["Dice Brace",      0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-     3: ["Pink Ribbon",     0, 1, 0,  0,  0, 20,0, 0, 0, 0   ],
-     4: ["White Ribbon",    0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-     5: ["Iron Shackle",    1, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-     6: ["Mouse Token",     0, 0, 2,  0,  0, 0, 0, 0, 7, 0.5 ],
-     7: ["Jevilstail",      2, 2, 2,  0,  0, 0, 0, 0, 0, 0   ],
-     8: ["Silver Card",     0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    
-     9: ["Twin Ribbon",     0, 3, 0,  0,  0, 20,0, 0, 0, 0   ],
-    10: ["Glow Wrist",      0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    11: ["Chain Mail",      0, 3, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    12: ["B.Shot Bowtie",   0, 2, 1,  0,  0, 0, 0, 0, 0, 0   ],
-    13: ["Spike Band",      2, 1, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    14: ["Silver Watch",    0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    15: ["Tension Bow",     0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    16: ["Mannequin",       0, 0, 0,  0,  0, 0, 0, 0, 6, 0.35],
-    17: ["DarkGold Band",   0, 0, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    18: ["Sky Mantle",      0, 1, 0,  0,  0, 0, 0, 0, 1, 0.5 ],
-    19: ["Spike Shackle",   3, 1, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    20: ["Frayed Bowtie",   1, 1, 1,  0,  0, 0, 0, 0, 6, 0.15],
-    21: ["Dealmaker",       0, 5, 5,  0,  0, 0, 0, 0, 6, 0.4 ],
-    22: ["Royal Pin",       0, 3, 1,  0,  0, 0, 0, 0, 0, 0   ],
-    
-    23: ["Shadow Mantle",   0, 4, 0,  0,  0, 0, 0, 0, 5, 0.66],
-    24: ["Lode Stone",      0, 2, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    25: ["Ginger Guard",    0, 3, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    26: ["Blue Ribbon",     0, 1, 1,  0,  0, 0, 0, 0, 0, 0   ],
-    27: ["Tenna Tie",       0, 5, -2, 0,  0, 0, 0, 0, 0, 0   ],
-    
-    50: ["Waferguard",      0, 4, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    51: ["Mystic Band",     0, 0, 4,  0,  0, 0, 0, 0, 0, 0   ],
-    52: ["Power Band",      4, 0, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    53: ["Princess Ribbon", 2, 4, 0,  0,  0, 0, 0, 0, 0, 0   ],
-    54: ["Gold Widow",      1, 5, 1,  0,  0, 0, 0, 0, 0, 0   ],
-},
-      lightItems = [
-    "Empty",
-    "Hot Chocolate",
-    "Pencil",
-    "Bandage",
-    "Bouquet",
-    "Ball of Junk",
-    "Halloween Pencil",
-    "Lucky Pencil",
-    "Egg",
-    
-    "Cards",
-    "Box of Heart Candy",
-    "Glass",
-    "Eraser",
-    "Mechanical Pencil",
-    "Wristwatch",
-    
-    "Holiday Pencil",
-    "Cactus Needle",
-    "Black Shard",
-    "Quill Pen",
-],
-      keyItems = {
-     0: "Empty",
-     1: "Cell Phone",
-     2: "Egg",
-     3: "Broken Cake",
-     4: "Broken Key A",
-     5: "Door Key",
-     6: "Broken Key B",
-     7: "Broken Key C",
-    
-     8: "Lancer",
-     9: "Rouxls Kaard",
-    10: "Empty Disk",
-    11: "Loaded Disk",
-    12: "KeyGen",
-    13: "Shadow Crystal",
-    14: "Starwalker",
-    15: "Pure Crystal",
-    
-    16: "Odd Controller",
-    17: "Backstage Pass",
-    18: "Trip Ticket",
-    19: "Lancer Controller",
-    
-    30: "Sheet Music",
-    31: "Claimb Claws",
-},
-      cellOpts = {
-    "0": "Empty",
-    "201": "Call Home",
-    "202": "Sans's Number"
-};
+    weapons = {
+        // Stats in same order as save file: AT, DF, Mag, attack bolts (presumably the thing that you use to time attacks), some unused values (grazeamt, grazesize, boltspeed, itemspecial), element (6 is Cat), element bonus amount.
+        //   name                AT  DF MAG BLT GZ GZ BS IS EL ELM
+        0: ["Empty", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        1: ["Wood Blade", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        2: ["Mane Ax", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        3: ["Red Scarf", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        4: ["Everybody Weapon", 12, 6, 8, 1, 0, 0, 0, 0, 0, 0],
+        5: ["Spookysword", 2, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        6: ["Brave Ax", 2, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        7: ["Devilsknife", 5, 0, 4, 1, 0, 0, 0, 0, 0, 0],
+        8: ["Trefoil", 4, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        9: ["Ragger", 2, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        10: ["Dainty Scarf", 0, 0, 2, 1, 0, 0, 0, 0, 0, 0],
+
+        11: ["Twisted Sword", 16, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        12: ["Snow Ring", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        13: ["Thorn Ring", 14, 0, 12, 1, 0, 0, 0, 0, 0, 0],
+        14: ["Bounce Blade", 2, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+        15: ["Cheer Scarf", 1, 0, 2, 1, 0, 0, 0, 0, 0, 0],
+        16: ["Mecha Saber", 4, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        17: ["Auto Axe", 4, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        18: ["Fiber Scarf", 2, 0, 2, 1, 0, 0, 0, 0, 0, 0],
+        19: ["Ragger 2", 5, 0, -1, 1, 0, 0, 0, 0, 0, 0],
+        20: ["Broken Sword", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        21: ["Puppet Scarf", 10, 0, -6, 1, 0, 0, 0, 0, 0, 0],
+        22: ["Freeze Ring", 4, 0, 4, 1, 0, 0, 0, 0, 0, 0],
+
+        23: ["Saber10", 6, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        24: ["Toxic Axe", 6, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        25: ["Flex Scarf", 4, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+        26: ["Black Shard", 16, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+
+        50: ["Jingle Blade", 7, 1, 0, 1, 0, 0, 0, 0, 0, 0],
+        51: ["Scarf Mark", 4, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+        52: ["Justice Axe", 12, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        53: ["Winglade", 8, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        54: ["Absorb Ax", 8, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    },
+    armors = {
+        // Stats in same order as save file: AT, DF, Mag, attack bolts (presumably the thing that you use to time attacks), some unused values (grazeamt, grazesize, boltspeed, itemspecial), element (6 is Cat), element bonus amount.
+        //   name               AT DF MAG BLT GZ GZ BS IS EL ELM
+        0: ["Empty", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        1: ["Amber Card", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        2: ["Dice Brace", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        3: ["Pink Ribbon", 0, 1, 0, 0, 0, 20, 0, 0, 0, 0],
+        4: ["White Ribbon", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        5: ["Iron Shackle", 1, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        6: ["Mouse Token", 0, 0, 2, 0, 0, 0, 0, 0, 7, 0.5],
+        7: ["Jevilstail", 2, 2, 2, 0, 0, 0, 0, 0, 0, 0],
+        8: ["Silver Card", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+
+        9: ["Twin Ribbon", 0, 3, 0, 0, 0, 20, 0, 0, 0, 0],
+        10: ["Glow Wrist", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        11: ["Chain Mail", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0],
+        12: ["B.Shot Bowtie", 0, 2, 1, 0, 0, 0, 0, 0, 0, 0],
+        13: ["Spike Band", 2, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        14: ["Silver Watch", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        15: ["Tension Bow", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        16: ["Mannequin", 0, 0, 0, 0, 0, 0, 0, 0, 6, 0.35],
+        17: ["DarkGold Band", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        18: ["Sky Mantle", 0, 1, 0, 0, 0, 0, 0, 0, 1, 0.5],
+        19: ["Spike Shackle", 3, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        20: ["Frayed Bowtie", 1, 1, 1, 0, 0, 0, 0, 0, 6, 0.15],
+        21: ["Dealmaker", 0, 5, 5, 0, 0, 0, 0, 0, 6, 0.4],
+        22: ["Royal Pin", 0, 3, 1, 0, 0, 0, 0, 0, 0, 0],
+
+        23: ["Shadow Mantle", 0, 4, 0, 0, 0, 0, 0, 0, 5, 0.66],
+        24: ["Lode Stone", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        25: ["Ginger Guard", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0],
+        26: ["Blue Ribbon", 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+        27: ["Tenna Tie", 0, 5, -2, 0, 0, 0, 0, 0, 0, 0],
+
+        50: ["Waferguard", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+        51: ["Mystic Band", 0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
+        52: ["Power Band", 4, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        53: ["Princess Ribbon", 2, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+        54: ["Gold Widow", 1, 5, 1, 0, 0, 0, 0, 0, 0, 0],
+    },
+    lightItems = [
+        "Empty",
+        "Hot Chocolate",
+        "Pencil",
+        "Bandage",
+        "Bouquet",
+        "Ball of Junk",
+        "Halloween Pencil",
+        "Lucky Pencil",
+        "Egg",
+
+        "Cards",
+        "Box of Heart Candy",
+        "Glass",
+        "Eraser",
+        "Mechanical Pencil",
+        "Wristwatch",
+
+        "Holiday Pencil",
+        "Cactus Needle",
+        "Black Shard",
+        "Quill Pen",
+    ],
+    keyItems = {
+        0: "Empty",
+        1: "Cell Phone",
+        2: "Egg",
+        3: "Broken Cake",
+        4: "Broken Key A",
+        5: "Door Key",
+        6: "Broken Key B",
+        7: "Broken Key C",
+
+        8: "Lancer",
+        9: "Rouxls Kaard",
+        10: "Empty Disk",
+        11: "Loaded Disk",
+        12: "KeyGen",
+        13: "Shadow Crystal",
+        14: "Starwalker",
+        15: "Pure Crystal",
+
+        16: "Odd Controller",
+        17: "Backstage Pass",
+        18: "Trip Ticket",
+        19: "Lancer Controller",
+
+        30: "Sheet Music",
+        31: "Claimb Claws",
+    },
+    cellOpts = {
+        "0": "Empty",
+        "201": "Call Home",
+        "202": "Sans's Number"
+    };
 
 let rooms = [[], [], []];
 rooms[2] = [
@@ -559,10 +559,10 @@ let flags = {
     7: ["disable_menu?", "Seems to prevent you opening the Dark World menu. And affect the music when leaving shops?", basicBool],
     8: ["simplify_vfx", "Self-explanatory. Set in Dark World menu.", basicBool],
     9: ["battle_music", "Volatile. Allows or prevents the game from playing Rude Buster at the start of an encounter.", [
-            "Default state",
-            "In battle",
-            "Starting boss music"
-       ]],
+        "Default state",
+        "In battle",
+        "Starting boss music"
+    ]],
     10: ["wrist_protector", "Whether you have the Wrist Protector. Enabled by default since the Chapter 1&2 release.", basicBool],
     11: ["auto_run", "Whether you have enabled auto-run.", basicBool],
     12: ["disable_shaking", "Debug variable. Keeps the game screen from shaking. Intended to be set in Dark World menu?", basicBool],
@@ -576,19 +576,19 @@ let flags = {
     22: ["disable_x_slowing", "Added in 1.08. Pressing Z while holding C in combat toggles it. Becomes debug-only in 1.09.", basicBool],
     29: ["susie_show_eyes", "Makes Susie show her eyes at the end of Chapter 1. Ignored in Chapter 2; she shows her eyes anyway.", basicBool],
     30: ["ralsei_hat_state", "Controls Ralsei's face selection. Ignored in Chapter 2; he's hatless anyway.", [
-            "Hat",
-            "Hood",
-            "Hatless"
-        ]],
+        "Hat",
+        "Hood",
+        "Hatless"
+    ]],
     31: ["disable_loud_steps", "Stops the echoing step sound found in the ?????? area, Great Door field, and Jevil's room.", basicBool],
     32: ["hide_equip_comments", "Prevents Susie and Ralsei from commenting on items you give them when in room_man.", basicBool],
     33: ["choice_time_taken", "Volatile. The time, in frames, you take to make a choice. Used by Sans."],
     34: ["disable_monster_acts", "Initialized to 1, reset to 0 when unlocking S-Action and R-Action.", basicBool],
     35: ["gameover_mode", "Controls what the game does on game over. Usually 0.", [
-            "Normal Game Over",
-            "Party Dojo",
-            "Immediate respawn?"
-        ]],
+        "Normal Game Over",
+        "Party Dojo",
+        "Immediate respawn?"
+    ]],
     36: ["dojo_failure", "Set when losing Party Dojo battles (i.e. when flag 35 is 1). Affects prize and dialogue.", basicBool],
     37: ["dojo_active", "Alters battle win text and prevents you from gaining money outside of prizes.", basicBool],
     38: ["no_battle_end_msg", "Disables the battle end message. Used for SnowGraving Berdly and Party Dojo.", basicBool],
@@ -609,31 +609,31 @@ let flags = {
     55: ["enemy_x", "Volatile. Used to return enemies to the correct spot in the overworld when frozen."],
     56: ["enemy_y", "Volatile. Used to return enemies to the correct spot in the overworld when frozen."],
     60: ["dojo_next_encounter", "Volatile. Used to chain encounters for the Party Dojo All Stars challenge.", {
-            0: "Default state",
-            90: "Werewires",
-            91: "Smorgasbord",
-            92: "Tasques + Maus",
-            93: "Swatchlings",
-            94: "Werewerewires"
-        }],
+        0: "Default state",
+        90: "Werewires",
+        91: "Smorgasbord",
+        92: "Tasques + Maus",
+        93: "Swatchlings",
+        94: "Werewerewires"
+    }],
     61: ["disable_recruiting", "Prevents you from recruiting enemies in Party Dojo battles.", basicBool],
     62: ["nonnarrative_intro_text", "Used when Noelle enters her first battle and when Susie wants to demonstrate UltimateHeal to not use the normal battle introduction typer.", basicBool],
     63: ["violenced_last", "Volatile. Triggers 'You/Noelle became stronger' when violencing enemies.", basicBool],
     64: ["storage_size", "The amount of items you can keep in your pockets. Always 24. No idea why this needed to be a flag."],
     65: ["times_leveled_ch2", "The number of times you have leveled up by violently defeating an encounter. Used for certain increases that only occur every 2, 4, or 10 encounters."],
     66: ["times_gained_at_ch2", "The number of times your AT and Magic have increased due to leveling up (every ten encounters). Used to prevent overly increasing them when sealing the fountain."],
-    
+
     100: ["got_glowshard", "Whether you obtained the Glowshard. Prevents it from re-appearing.", basicBool],
     101: ["got_candy", "How much Dark Candy you've taken from the first Dark Candy tree.", [
-            "None",
-            "One candy",
-            "Both candies"
-         ]],
+        "None",
+        "One candy",
+        "Both candies"
+    ]],
     102: ["got_candy_2", "How much Dark Candy you've taken from the second Dark Candy tree.", [
-            "None",
-            "One candy",
-            "Both candies"
-         ]],
+        "None",
+        "One candy",
+        "Both candies"
+    ]],
     103: ["got_broken_cake", "Whether you took a piece of the Broken Cake.", basicBool],
     104: ["got_white_ribbon", "Whether you got the White Ribbon."],
     105: ["got_iron_shackle", "Whether you took the Iron Shackle.", basicBool],
@@ -674,106 +674,106 @@ let flags = {
     140: ["got_trash_candy", "Whether you got a Dark Candy from the Dark Candy trash can.", basicBool],
     141: ["got_chain_mail", "Whether you got the Chain Mail armor.", basicBool],
     142: ["got_spamton_chest", "Whether you got the Dealmaker/Puppet Scarf from a chest. There's one immediately after you beat Spamton, and one back at My Castle Town.", basicBool],
-    
+
     200: ["ran_in_school", "Whether you ran to Susie in the Chapter 1 school scene. Unaccessed.", basicBool],
     201: ["solved_eye_puzzle", "Whether you solved the eye puzzle in the ?????? area.", basicBool],
     202: ["ran_in_dark", "How you proceeded once finding Susie in the ?????? area.", [
-            "Walked",
-            "Ran",
-            "Wrong way"
-         ]],
+        "Walked",
+        "Ran",
+        "Wrong way"
+    ]],
     203: ["skipped_prophecy", "Whether you skipped Ralsei's prophecy. Lancer explains it instead.", basicBool],
     204: ["be_subject_answer", "How you answered Ralsei when he said he had no subjects... that is, unused.", [
-            "Default state",
-            "I'll be your subject",
-            "Keep dreaming"
-         ]],
+        "Default state",
+        "I'll be your subject",
+        "Keep dreaming"
+    ]],
     205: ["tutorial_end", "What happened during Ralsei's tutorial.", [
-            "Skipped tutorial",
-            "Success",
-            "Hug Ralsei (in unused version of tutorial)",
-            "Beat up Ralsei",
-            "Beat up dummy",
-            "Continued defending",
-            "Missed dummy"
-         ]],
+        "Skipped tutorial",
+        "Success",
+        "Hug Ralsei (in unused version of tutorial)",
+        "Beat up Ralsei",
+        "Beat up dummy",
+        "Continued defending",
+        "Missed dummy"
+    ]],
     206: ["learned_to_run", "Set to 1 whether Ralsei explains it or you demonstrate. Just prevents him from asking again.", basicBool],
     207: ["dropped_manual", "Your progress on being a terrible person. Ralsei gives you a trash can for the manual instead of a stand, in case you ever want to trash it again.", [
-            "Default state",
-            "Dropped once",
-            "Dropped twice"
-         ]],
+        "Default state",
+        "Dropped once",
+        "Dropped twice"
+    ]],
     208: ["re_convinced_rudinn", "Whether you Convinced Rudinn after failing to do. Unused, since it works first try now.", basicBool],
     209: ["seen_field_song", "Prevents you from seeing the Field of Hopes and Dreams title every single room.", basicBool],
     210: ["lancer_thrash_talk", "Alters Lancer's dialogue if interacted with prior to the triple Hathy fight.", [
-            "Default state",
-            "Talked",
-            "Did not talk"
-         ]],
+        "Default state",
+        "Talked",
+        "Did not talk"
+    ]],
     211: ["c_round_outcome", "What happened to C. Round. Can skip Ralsei telling Susie not to fight.", [
-            "Default state",
-            "Complimented by Susie",
-            "Warned",
-            "Attacked by Kris/Ralsei"
-         ]],
+        "Default state",
+        "Complimented by Susie",
+        "Warned",
+        "Attacked by Kris/Ralsei"
+    ]],
     212: ["box_puzzle_state", "Progress on the vandalized box puzzle.", [
-            "Default state",
-            "Initiated puzzle",
-            "Failure (unused)"
-         ]],
+        "Default state",
+        "Initiated puzzle",
+        "Failure (unused)"
+    ]],
     // 213: ["unused", "Suspiciously unused flag."],
     214: ["team_name", "The name of your team.", [
-            "The Guys",
-            "The $!$? Squad",
-            "The Lancer Fan Club",
-            "The Fun Gang"
-         ]],
+        "The Guys",
+        "The $!$? Squad",
+        "The Lancer Fan Club",
+        "The Fun Gang"
+    ]],
     215: ["talked_joe", "Whether you talked to Joe (and were inevitably offered a tutorial). Makes him help with the Warp Door.", basicBool],
     216: ["donated_to_hole", "Whether you put a dollar in the donation hole.", basicBool],
     217: ["solved_rouxls_puzz", "Whether you solved Rouxls's first puzzle.", basicBool],
     218: ["solved_rouxls_puzz_2", "Whether you solved Rouxls's second puzzle.", basicBool],
     // no 219, but not as suspicious as some of these others
     220: ["thrash_machine_head", "Your Thrash Machine's head.", {
-            "-1": "In design",
-            "0": "Laser",
-            "1": "Sword",
-            "2": "Flame",
-            "3": "Duck"
-         }],
+        "-1": "In design",
+        "0": "Laser",
+        "1": "Sword",
+        "2": "Flame",
+        "3": "Duck"
+    }],
     221: ["thrash_machine_body", "Your Thrash Machine's chassis.", {
-            "-1": "In design",
-            "0": "Plain",
-            "1": "Wheel",
-            "2": "Tank",
-            "3": "Duck"
-         }],
+        "-1": "In design",
+        "0": "Plain",
+        "1": "Wheel",
+        "2": "Tank",
+        "3": "Duck"
+    }],
     222: ["thrash_machine_shoe", "Your Thrash Machine's... well, there's a lot of variance here.", {
-            "-1": "In design",
-            "0": "Shoes",
-            "1": "Wheels",
-            "2": "Treads",
-            "3": "Duck"
-         }],
+        "-1": "In design",
+        "0": "Shoes",
+        "1": "Wheels",
+        "2": "Treads",
+        "3": "Duck"
+    }],
     223: ["thrash_head_color", "Your Thrash Machine's head color. You should probably just edit it in-game."],
     224: ["thrash_body_color", "Your Thrash Machine's chassis color. You should probably just edit it in-game."],
     225: ["thrash_shot_color", "Your Thrash Machine's shoe color. You should probably just edit it in-game."],
     226: ["made_thrash_machine", "Whether you designed the Thrash Machine yet.", basicBool], // Why is this not a plot value?!
     // no 227 or 228?
     229: ["lancer_follow_progress", "How far Lancer has followed you after joining the team.", {
-            0: "Default state",
-            1: "Monogrammed track jackets",
-            3: "Just chill with us",
-            4: "Stop making fun of me",
-            5: "Darkberry Teacakes (unused)",
-            6: "A candy tree!",
-            7: "My teeth are disintegrating!",
-            8: "Does your dad seem happy?",
-            9: "I also feel kinda...",
-            10: "...maybe.",
-            11: "That's the FOUNTAIN!",
-            12: "All we gotta do is crush them.",
-            99: "Max value (unused)"
-         }],
+        0: "Default state",
+        1: "Monogrammed track jackets",
+        3: "Just chill with us",
+        4: "Stop making fun of me",
+        5: "Darkberry Teacakes (unused)",
+        6: "A candy tree!",
+        7: "My teeth are disintegrating!",
+        8: "Does your dad seem happy?",
+        9: "I also feel kinda...",
+        10: "...maybe.",
+        11: "That's the FOUNTAIN!",
+        12: "All we gotta do is crush them.",
+        99: "Max value (unused)"
+    }],
     // no 230
     231: ["jail_interacts", "The number of times you have interacted with objects while in jail. The cutscene is triggered by talking to Ralsei after 3+ interactions."],
     232: ["interacted_salsa", "Whether you interacted with the salsa stump. NOT what you actually did; that isn't saved.", basicBool],
@@ -784,30 +784,30 @@ let flags = {
     237: ["solved_dark_puzzle", "Whether you solved the puzzle in the darknening room. It does not save if you did it without going in the middle.", basicBool],
     238: ["susie_bought_snack", "Whether Susie and Lancer bought their Hearts Donut yet.", basicBool],
     239: ["elevator_floor", "Volatile. Tracks the floor you're currently on when in elevators.", [
-            "Basement B1",
-            "Floor 1F",
-            "Floor 5F",
-            "???? (JEVIL)"
-         ]],
+        "Basement B1",
+        "Floor 1F",
+        "Floor 5F",
+        "???? (JEVIL)"
+    ]],
     240: ["elevator_unlocked", "Whether you have unlocked the Card Castle elevator by going to floor 5F.", basicBool],
     241: ["JEVIL_plot", "Your progress with JEVIL. Alters Seam's dialogue.", {
-            0: "Default state",
-            1: "Talked to JEVIL",
-            5: "Opened door",
-            6: "Fought",
-            7: "Spared"
-         }],
+        0: "Default state",
+        1: "Talked to JEVIL",
+        5: "Opened door",
+        6: "Fought",
+        7: "Spared"
+    }],
     242: ["JEVIL_chest", "The item in the chest outside JEVIL's room, if you don't have enough storage space for it. See also flag 112.", [
-            "Default state",
-            "Devilsknife",
-            "Jevilstail"
-         ]],
+        "Default state",
+        "Devilsknife",
+        "Jevilstail"
+    ]],
     243: ["talked_to_rudinn", "The status of your talking to Rudinn in Card Castle. Special dialogue if set to 3 but you then hurt Rudinns.", [
-            "Default state",
-            "Apologized",
-            "Did not apologize",
-            "Did not need to apologize"
-         ]],
+        "Default state",
+        "Apologized",
+        "Did not apologize",
+        "Did not need to apologize"
+    ]],
     244: ["talked_to_hathy", "Whether you talked to Hathy in Card Castle. Only set if you had two or fewer Hathy kills.", basicBool],
     245: ["made_bluh_chest", "Whether you interacted with all four Bluh Paintings, summoning the Bluh Chest.", basicBool],
     246: ["checkers_act", "Whether you Checked K. Round the first time, changing its act to Checkers (including in the second fight).", basicBool],
@@ -819,101 +819,101 @@ let flags = {
     252: ["inspected_beds_ch1", "Whether you inspected all four beds in Chapter 1, becoming a Bed Inspector.", basicBool],
     253: ["traded_topcake", "Whether you returned the TopCake, receiving a SpinCake in its place.", basicBool],
     254: ["starwalker", "Whether you talked to the original Starwalker. That's foresight.", basicBool],
-    
+
     255: ["talk_rudy_ch1", "Progress talking with Rudolph Holiday in Chapter 1. Not sure how it interacts with Chapter 2.", [
-            "Default state",
-            "Noelle left",
-            "Talked to Rudy"
-         ]],
+        "Default state",
+        "Noelle left",
+        "Talked to Rudy"
+    ]],
     256: ["talked_berdly_window", "Whether you talked to Berdly about visiting the hospital window to have something thrown at him. Slightly alters his dialogue about How to Draw Dragons.", basicBool],
     257: ["table_hole_fingers", "Whether you tried to put your fingers in the picnic table.", basicBool],
     258: ["onionsan_ch1", "Onion's status.", [
-            "Default state",
-            "Talking (volatile)",
-            "Befriended",
-            "Rejected"
-         ]],
+        "Default state",
+        "Talking (volatile)",
+        "Befriended",
+        "Rejected"
+    ]],
     259: ["onionsan_your_name", "The name you told Onion was yours.", [
-            "Default state",
-            "Kris",
-            "Hippopotamus"
-         ]],
+        "Default state",
+        "Kris",
+        "Hippopotamus"
+    ]],
     260: ["onionsan_name", "The name you told Onion was theirs.", [
-            "Default state",
-            "Onion",
-            "Beauty",
-            "Asriel II",
-            "Disgusting"
-         ]],
+        "Default state",
+        "Onion",
+        "Beauty",
+        "Asriel II",
+        "Disgusting"
+    ]],
     261: ["talked_qc_ch1", "Tracks your talking with QC.", [
-            "Default state",
-            "Received Hot Chocolate",
-            "Full inventory"
-         ]],
+        "Default state",
+        "Received Hot Chocolate",
+        "Full inventory"
+    ]],
     262: ["bouquet_quest_stage", "Progress toward failing to redeem Toriel and Asgore's relationship in Chapter 1.", [
-            "Default state",
-            "In flower shop",
-            "Received bouquet",
-            "Gave to Toriel",
-            "Disposed of"
-         ]],
+        "Default state",
+        "In flower shop",
+        "Received bouquet",
+        "Gave to Toriel",
+        "Disposed of"
+    ]],
     263: ["fridge_egg_status", "The Chapter 1 egg status, with regards to Asgore's fridge. Each stage correlates with an egg quantity in the fridge.", [
-            "(0) Default state",
-            "(1) Egg dropped/fridge inspected eggless",
-            "(2) Egg put in fridge"
-         ]],
+        "(0) Default state",
+        "(1) Egg dropped/fridge inspected eggless",
+        "(2) Egg put in fridge"
+    ]],
     264: ["asgore_stairs_side", "Volatile. Persists the different door sides when going upstairs in Asgore's fridge via Kris's x-coordinate."],
     265: ["talked_to_catty", "Whether you talked to Catty in Chapter 1.", basicBool],
     // no 266
     267: ["unused_toriel_talk", "Progress talking to Toriel... in an unused variant. The whole thing is thouroughly broken.", {
-            "-10": "Kris...?",
-            "0": "Headband",
-            "1": "Go to bed"
-         }],
+        "-10": "Kris...?",
+        "0": "Headband",
+        "1": "Go to bed"
+    }],
     268: ["called_in_house", "Whether you called Toriel's home phone, while at home. Unaccessed.", basicBool],
     269: ["talked_to_alphys", "Whether you met Alphys after school in Chapter 1. Alters her dialogue the morning of Chapter 2.", basicBool],
     270: ["talked_to_undyne", "Whether you met Undyne in Chapter 1.", basicBool],
     271: ["talk_pizzapants", "Progress chatting with BurgerPizzaSodaCandyPants.", [
-            "Default state",
-            "Mask off",
-            "Talked"
-         ]],
+        "Default state",
+        "Mask off",
+        "Talked"
+    ]],
     272: ["times_called_mom", "The number of times you called Toriel after school. If zero when leaving the school, she calls you instead, incrementing the flag."],
     273: ["talked_to_sans", "Progress chatting up the funny bone man in Chapter 1.", [
-            "Default state",
-            "Talked",
-            "Invited over"
-         ]],
+        "Default state",
+        "Talked",
+        "Invited over"
+    ]],
     274: ["sans_phone", "Your progress toward being called an idiot baby.", [
-            "Default state",
-            "Received number",
-            "Called"
-         ]],
+        "Default state",
+        "Received number",
+        "Called"
+    ]],
     275: ["idiot_baby_status", "What you are.", [
-            "None",
-            "Idiot",
-            "Baby",
-            "Idiot Baby"
-         ]],
+        "None",
+        "Idiot",
+        "Baby",
+        "Idiot Baby"
+    ]],
     276: ["talked_to_noelle", "Your progress talking to Noelle outside her house in Chapter 1. If 2, she gives Susie the Light Candy in Chapter 2.", [
-            "Default state",
-            "Talked",
-            "Talked about Susie"
-         ]],
+        "Default state",
+        "Talked",
+        "Talked about Susie"
+    ]],
     277: ["times_came_home", "The number of times you have returned home at the end of Chapter 1. Special dialogue at 0, 1, and 7; stops counting at 8."],
     278: ["used_rudy_sink", "Whether you used the sink in Chapter 1 (of the 1&2 demo). Rudy comments on you 'loving that sink'.", basicBool],
     279: ["loaded_legacy_file", "Set to 1 while loading a Chapter 1 file (which has different room offsets). If 1 on an old file, you might load into a Chapter 2 room.", basicBool],
     280: ["used_shadow_ch1", "Your Shadow Crystal usage in Chapter 1. Unique dialogue if less than 2.", [
-            "Default state",
-            "Saw toys",
-            "Not useful"
-         ]],
+        "Default state",
+        "Saw toys",
+        "Not useful"
+    ]],
     281: ["used_glass_alone", "Your Glass usage without Susie around/in Chapter 1.", [
-            "Default state",
-            "Saw through hand",
-            "Not useful (Ch1)"
-         ]],
-    
+        "Default state",
+        "Saw through hand",
+        "Not useful (Ch1)"
+    ]],
+
     290: ["solved_dice_puzzle", "Whether you solved the suits puzzle to obtain Dice Brace.", basicBool],
     291: ["maze_progress", "Volatile. Counts the number of correct rooms you've gone through in the maze, or something like that. Find Susie at 4, done at 9."],
     292: ["maze_fail_count", "Volatile. Counts how much you've taken the wrong choice in the forest maze. Jumps straight to 3 (dead end) if you got lost before or found Susie."],
@@ -921,40 +921,40 @@ let flags = {
     294: ["susie_deadend", "The number of times you found the Susie dead end."],
     295: ["youre_clovers_mom", "Whether you talked to Topchef in the pacifist end after returning the Topcake. He thinks Susie is Clover's mom.", basicBool],
     296: ["visited_jail", "Whether you visited the jail. No effects in Ch 1&2 demo, but does *something* weird if 0 in the Chapter 1 demo. Seems the cages are supposed to disappear?", basicBool],
-    
+
     300: ["hugged_dummy_ch2", "Whether you hugged the dummy in Chapter 2. Some slight dialogue changes.", basicBool],
     301: ["talked_king_prologue", "Whether you talked to King in jail before visiting Cyber World.", [
-            "Default state",
-            "Talked",
-            "Left"
-         ]],
+        "Default state",
+        "Talked",
+        "Left"
+    ]],
     302: ["toy_deliver_progress", "Your progress in delivering Ralsei's first batch of subjects.", [
-            "Default state",
-            "Ball on head",
-            "Toys delivered"
-         ]],
+        "Default state",
+        "Ball on head",
+        "Toys delivered"
+    ]],
     303: ["been_called_normal", "Whether you saw Alphys and Toriel talking about you. Alters Toriel's dialogue if called.", basicBool],
     304: ["susie_ate_cake", "Whether Susie ate Ralsei's entire cake (yet).", basicBool],
     305: ["told_mom_studying", "Whether you told Toriel you were going to be studying with Susie over the phone, with or without mentioning the trash orb.", basicBool],
     306: ["told_mom_orb", "Whether you called Toriel while just around the corner with a trash orb on your head. Also sets flag 305.", basicBool],
     307: ["fave_party_member", "Records who you gave the plush to. In pre-1.08 versions, there's a bug resetting it to 1 before the acid river ride", [
-            "Default state",
-            "Ralsei",
-            "Susie",
-            "Noelle",
-            "Berdly"
-         ]],
+        "Default state",
+        "Ralsei",
+        "Susie",
+        "Noelle",
+        "Berdly"
+    ]],
     308: ["seen_eggs_husband", "Whether you've seen Asgore make a fool of himself in public.", basicBool],
     309: ["spamton_plot", "Your progress in learning about the power of NEO.", {
-            0: "Default state",
-            1: "Spared Spamton",
-            3: "Purchased KeyGen",
-            4: "Used KeyGen",
-            5: "Entered basement",
-            7: "Disk Loaded",
-            8: "Disk inserted",
-            9: "Defeated Spamton NEO"
-         }],
+        0: "Default state",
+        1: "Spared Spamton",
+        3: "Purchased KeyGen",
+        4: "Used KeyGen",
+        5: "Entered basement",
+        7: "Disk Loaded",
+        8: "Disk inserted",
+        9: "Defeated Spamton NEO"
+    }],
     310: ["first_cheese_destroyed", "Whether the first cheese on the left was destroyed.", basicBool],
     311: ["destroyed_cheese_alone", "Whether you triggered the first cheese without Noelle, prompting slightly different text when interacting with it. Is this even possible?", basicBool],
     312: ["talked_seam_ch2", "Seems to be set to 1 when you talk to Seam in Chapter 2, preventing them from repeating themselves.", basicBool],
@@ -963,31 +963,31 @@ let flags = {
     315: ["seen_shelter_scene", "Whether Monster Kid and Snowy fled Susie at the bunker. They go home.", basicBool],
     316: ["seen_hospital_scene", "Whether Noelle went home in Chapter 2 yet (yes, either route).", basicBool],
     317: ["seen_police_scene", "Tracks how yoooouuu let the dogs out!", [
-            "Default state",
-            "Dogs escaped",
-            "Alarm playing"
-         ]],
+        "Default state",
+        "Dogs escaped",
+        "Alarm playing"
+    ]],
     // no 318
     319: ["ferris_scene_plot", "Tracks how Suselle becomes canon. Returns to 2 after the whole scene?", [
-            "Default state",
-            "On Ferris wheel",
-            "Off Ferris wheel",
-            "WHAT? WHAT? WHAT?"
-         ]],
+        "Default state",
+        "On Ferris wheel",
+        "Off Ferris wheel",
+        "WHAT? WHAT? WHAT?"
+    ]],
     320: ["talked_queenie_beanie", "Whether you've seen the touching reunion of King and Queen.", basicBool],
     // no 321-323
     324: ["spamton_stress_response", "What you said- made Kris say- after fighting Spamton NEO.", [
-            "Default state",
-            "OK",
-            "Not OK"
-         ]],
+        "Default state",
+        "OK",
+        "Not OK"
+    ]],
     325: ["ralsei_photo_choice", "The purty picture you took with Ralsei. Affects his title and whether he hugs Kris after Spamton NEO.", [
-            "Default state",
-            "Hugged",
-            "Peace sign",
-            "Rude gesture",
-            "No pose"
-         ]],
+        "Default state",
+        "Hugged",
+        "Peace sign",
+        "Rude gesture",
+        "No pose"
+    ]],
     326: ["rouxls_pirate_hat", "Whether Rouxls Kaard is currently wearing a pirate hat.", basicBool],
     327: ["interacted_hathyx_www", "Whether you interacted with a Head Hathy or Werewerewire together at the cafe. Alters Werewerewire narration if subsequently moved away from Head Hathy.", basicBool],
     // no 328
@@ -1000,22 +1000,22 @@ let flags = {
     335: ["shovel_door_open", "Whether you opened the door to the room filled with 999 shovels.", basicBool],
     336: ["susie_avoid_alphys", "Whether Susie is waiting due east of you rather than come close to Alphys.", basicBool],
     337: ["talked_alvin", "Tracks how much you talk to Alvin about his father and the hammer, and whether he mumbles to himself as you leave.", [
-            "Default state",
-            "Talked once",
-            "Talked twice",
-            "Heard mumbling"
-         ]],
+        "Default state",
+        "Talked once",
+        "Talked twice",
+        "Heard mumbling"
+    ]],
     // no 338
     339: ["found_basement_switch", "Whether you activated the secret backdoor to the mansion's basement. Alter's Hacker's dialogue.", basicBool],
     340: ["found_shortcut_out", "Whether you flipped the less-secret switch to connect the basement to the foyer. Also set on entry into the foyer on Snowgrave.", basicBool],
     341: ["susie_avoid_catti", "Whether Susie has told you she isn't going into the diner (Catti's working there!)", basicBool],
     342: ["chocolates_who_gave", "Who did you give the Box of Heart-Shaped Chocolates to?", [
-            "Default value",
-            "Ate alone",
-            "Shared with Susie",
-            "Gave to Alphys",
-            "Returned to Sans"
-         ]],
+        "Default value",
+        "Ate alone",
+        "Shared with Susie",
+        "Gave to Alphys",
+        "Returned to Sans"
+    ]],
     343: ["made_high_five", "Whether you pulled the lever to make a giant high-five and progress the swan ride.", basicBool],
     344: ["solved_saucer_puzzle?", "Looks to be set to 1 when completing the first shell game-style saucer puzzle.", basicBool],
     345: ["seen_toilet_statue", "Whether you interacted with the Berdly statue in the toilet. Spawns the NPC outside waiting for the statue to finish in there.", basicBool],
@@ -1027,20 +1027,20 @@ let flags = {
     351: ["maze_hint_debug?", "Seems to be an unset flag that would make a little hint popup in room_dw_cyber_maze_queenscreen.", basicBool],
     352: ["solved_viro_dodge", "Whether you got the key in room_dw_cyber_viro_ring.", basicBool],
     353: ["talk_two_crystals", "How much you've talked to Seam since obtaining both Shadow Crystals.", [
-            "Default state",
-            "Gave both",
-            "Talked about mantle"
-         ]],
+        "Default state",
+        "Gave both",
+        "Talked about mantle"
+    ]],
     354: ["bagels_purchased", "The number of CD Bagels you purchased from K_K. He stops selling them at six, in case somebody orders 400."],
     // no 355
     356: ["lancer_cared_for", "Whether statue-Lancer has been pushed to the table and given his adorable bib.", basicBool],
     357: ["recruit_hacker", "Whether you collected all three Blue Checksmarks for Hacker.", basicBool],
     358: ["entered_basement", "Tracks how many times you entered the basement alone. Does not go past 1 until you've seen Susie stealing Ralsei's glasses, after which it gets set to 2."],
     359: ["met_hacker", "Whether you talked to Hacker. Note that the 2 state isn't directly used; see flag 357.", [
-            "Default state",
-            "Talked",
-            "Recruited"
-         ]],
+        "Default state",
+        "Talked",
+        "Recruited"
+    ]],
     360: ["approached_cheese_maze", "Whether you've approached the cheese maze, destroying the lone cheese or triggering Noelle dialogue if it's already destroyed.", basicBool],
     361: ["did_right_cheese_fight", "Apparently like 360 but only for the right cheese, and unaccessed.", basicBool],
     362: ["mauswheel_defeated", "Whether you defeated Mauswheel on the normal route, freeing the Swatchlings.", basicBool],
@@ -1048,10 +1048,10 @@ let flags = {
     366: ["tasque_released", "Makes one particular Tasque persist leaving the wall screen in Field?", basicBool],
     367: ["got_chestmark", "Whether you got the Blue Checksmark from a treasure chest.", basicBool],
     368: ["solved_mice_2", "Progress on solving the second mice puzzle.", {
-            "0": "Default state",
-            "0.5": "Mice in hole",
-            "1": "Forcefield down"
-         }],
+        "0": "Default state",
+        "0.5": "Mice in hole",
+        "1": "Forcefield down"
+    }],
     369: ["saw_ralsusie", "Whether Noelle gave her one-time dialogue about seeing Ralsei and Susie having fun.", basicBool],
     370: ["solved_mansion_traffic", "Whether the traffic challenge at the end of floor 1F was completed, opening the room with the backdoor switch.", basicBool],
     371: ["fought_tasque_manager", "Whether you fought Tasque Manager.", basicBool],
@@ -1060,10 +1060,10 @@ let flags = {
     374: ["mice_got_$20", "Whether the mice got $20. Alters Mousemillian's dialogue.", basicBool],
     375: ["mice_got_$1", "Whether the mice got $1. Alters Mousemillian's dialogue.", basicBool],
     376: ["funny_butler_progress", "Progress in the room with the Swatchling and the bridges and the unavoidable vase.", [
-            "Default state",
-            "Swatchling freed",
-            "Vase spawned"
-         ]],
+        "Default state",
+        "Swatchling freed",
+        "Vase spawned"
+    ]],
     377: ["mouselottery_solved", "Whether the mice have triggered the blue house.", basicBool],
     378: ["mouselottery_solved_2", "Whether the mice have triggered the red house.", basicBool],
     379: ["noelle_beat_fear", "Whether Noelle stopped being afraid of mice.", basicBool],
@@ -1073,15 +1073,15 @@ let flags = {
     383: ["solved_forcefield_1", "Whether you successfully activated both switches in the first forcefield puzzle, disabling it forever.", basicBool],
     384: ["fought_cheese_maze", "Whether you touched the cheese maze, triggering an encounter and destroying it.", basicBool],
     385: ["balance_pot_status", "What happened in the vase-balancing minigame.", [
-            "Default state",
-            "Dropped pot",
-            "Success"
-         ]],
+        "Default state",
+        "Dropped pot",
+        "Success"
+    ]],
     386: ["visited_spamton", "Prevents you from getting repeat dialogue every single time you visit Spamton's shop.", [
-            "Default state",
-            "First time in shop",
-            "Exited"
-         ]],
+        "Default state",
+        "First time in shop",
+        "Exited"
+    ]],
     387: ["returned_castle_town", "Whether you've seen Queen introduce herself to Castle Town.", basicBool],
     388: ["got_no_recruits", "Whether you sealed the Fountain with no recruits at all, on the normal route anyway.", basicBool],
     389: ["fought_bridge_werewire", "Whether you fought the Werewire in the acid lake bridge room, unlocking the Revive Dust chest.", basicBool],
@@ -1096,10 +1096,10 @@ let flags = {
     398: ["activated_mint_painting", "Whether you activated the Revive Mint painting with a different painting.", basicBool],
     399: ["activated_painting_exit", "Whether you disabled a fire painting blocking the exit by interacting with a different painting.", basicBool],
     400: ["vase_intro_status", "Your progress in learning the basics of Queen's Mansion.", [
-            "Default state",
-            "Learned rules",
-            "Broke vase"
-         ]],
+        "Default state",
+        "Learned rules",
+        "Broke vase"
+    ]],
     // no 401-406
     407: ["got_chestmark_2", "Whether you got the second Chest-Checksmark.", basicBool],
     408: ["seen_djs_flyby", "Whether you saw Sweet Cap'n Cakes fly by after fighting them.", basicBool],
@@ -1110,44 +1110,44 @@ let flags = {
     413: ["inspected_noelle_bed", "Whether you inspected Noelle's bed. Necessary to retain your Bed Inspector title.", basicBool],
     414: ["bed_inspector_ch2", "Whether you retained your Bed Inspector title. That is, got slightly different Noelle bed dialogue. Only obtainable on v1.09+ due to a bug.", basicBool],
     415: ["mice_attack_reason", "What you told Noelle about the mice attacking her. The question was, 'What do I look like, the girl from the Nutcracker?'", [
-            "Default state",
-            "They like you",
-            "Unknown",
-            "You look like her"
-         ]],
+        "Default state",
+        "They like you",
+        "Unknown",
+        "You look like her"
+    ]],
     416: ["field_tempsave", "Whether you returned to the Cyber Field hub after defeating Sweet Cap'n Cakes and triggered a tempsave.", basicBool],
     417: ["trash_tempsave", "Whether you reached Cyber City by falling into the dump and triggered a tempsave.", basicBool],
     418: ["got_shoe", "Whether you got a free sample from Cyber Shoes. Alters Lancer's dialogue and prevents a Mansion tempsave from happening (reused flag).", basicBool],
     419: ["tasque_manager_response", "Whether you got all or most of Tasque Manager's questions correct. She starts with 100% if all, 50% if you miss the last due to her phrasing.", [
-            "Default state",
-            "All correct",
-            "Thought alphabetical"
-         ]],
+        "Default state",
+        "All correct",
+        "Thought alphabetical"
+    ]],
     420: ["giasfelfebrehber", "Whether you solved the Giasfclfebrebrebrebehr typing puzzle, earning the third Blue Checksmark.", basicBool],
     421: ["noelle_friend", "Whether you told Noelle you were 'something else.' Necessary for Snowgrave.", [
-            "Friends",
-            "Something else"
-         ]],
+        "Friends",
+        "Something else"
+    ]],
     422: ["talked_mettaton", "Whether you talked to Mettaton in Chapter 2. They don't repeat themselves.", basicBool],
     423: ["stolen_bagels", "How many CD Bagels you stole on the Snowgrave Route (0-4)."],
     424: ["talked_onion_ch2", "Whether you talked to Onionsan in Chapter 2. Probably kinda important, you know.", basicBool],
     425: ["onion_was_missed", "What you told Onion. Probably kinda important, especially if you didn't miss them.", [
-            "Default state",
-            "Missed",
-            "Did not miss"
-         ]],
+        "Default state",
+        "Missed",
+        "Did not miss"
+    ]],
     426: ["swatchling_combo", "Volatile. The current combination of Swatchlings you are fighting. Later ones are harder, generally.", {
-            "-1": "RRB",
-            "0": "ROB",
-            "1": "BGY",
-            "2": "ROY",
-            "3": "BYR",
-            "4": "RBY",
-            "5": "BYG",
-            "6": "RYB",
-            "7": "BRY",
-            "8": "YGO"
-         }],
+        "-1": "RRB",
+        "0": "ROB",
+        "1": "BGY",
+        "2": "ROY",
+        "3": "BYR",
+        "4": "RBY",
+        "5": "BYG",
+        "6": "RYB",
+        "7": "BRY",
+        "8": "YGO"
+    }],
     427: ["unlocked_mint_chest", "Whether Virovirokun triggered the hidden path to the Revive Mint chest.", basicBool],
     428: ["saw_sweet", "Whether you saw Sweet right after the first teacup ride. Prevents him from appearing multiple times.", basicBool],
     429: ["statue_sink_progress", "The amount by which the statue of Queen has sunk into the acid, in frames, so it persists even if you leave."],
@@ -1157,24 +1157,24 @@ let flags = {
     433: ["told_to_run_ch2", "Whether Susie reminded you that you can run in this game (if you fail to do so in the chapter).", basicBool],
     434: ["talked_our_deal", "Whether Spamton told you about our deal and the machine in the basement. Prevents him from skipping it if you buy KeyGen first.", basicBool],
     435: ["house_game_winner", "Who won Rouxls's house minigame.", [
-            "Default state",
-            "Rouxls",
-            "Kris",
-            "Draw"
-         ]],
+        "Default state",
+        "Rouxls",
+        "Kris",
+        "Draw"
+    ]],
     436: ["called_mom_busy", "Whether you called home during the Chapter 2 end sequence. Unique dialogue the first time, then everyone's too busy to pick it up.", basicBool],
     437: ["fave_party_member_2", "Who you told Susie you would take to the festival in the Chapter 2 end cutscene. Unaccessed.", [
-            "Default state",
-            "Noelle",
-            "Ralsei",
-            "Susie",
-            "..."
-         ]],
+        "Default state",
+        "Noelle",
+        "Ralsei",
+        "Susie",
+        "..."
+    ]],
     438: ["tutor_viro_location", "Where you fought the tutorial Virovirokun. Persists its ice statue in Snowgrave.", [
-            "Default state",
-            "Progressed",
-            "Backtracked"
-         ]],
+        "Default state",
+        "Progressed",
+        "Backtracked"
+    ]],
     439: ["deposited_ch2_egg", "Whether you put the egg in the egg basket in Sans's store.", basicBool],
     440: ["interacted_ferris_poster", "Whether you interacted with the Ferris wheel poster with Noelle. One-time event.", basicBool],
     441: ["talked_friend_addison", "Whether you talked to the Addison selling Dating Shoes. One-time event. See also flag 421.", basicBool],
@@ -1187,10 +1187,10 @@ let flags = {
     448: ["finished_big_forcefield", "Whether you finished and disabled the right-side forcefields in that room where Noelle stands on a button forever.", basicBool],
     449: ["easter_egg_forcefield", "Whether you disabled the Easter egg forcefield (with the balloons) by all getting in one teacup.", basicBool],
     450: ["easter_teacup_plot", "Progress in the balloon-teacup Easter egg.", [
-            "Default state",
-            "Read sign",
-            "Rode teacups"
-         ]],
+        "Default state",
+        "Read sign",
+        "Rode teacups"
+    ]],
     451: ["talked_about_pap", "Whether you talked to Sans about Papyrus in both chapters 1 and 2; talking in Chapter 2 only isn't saved.", basicBool],
     452: ["told_wrongway", "Whether Noelle questioned if you were going the right way while backtracking further into the trash zone.", basicBool],
     453: ["talked_snowgrave_neo", "Whether you talked to Spamton through the basement door while he was changing forms. He doesn't repeat himself.", basicBool],
@@ -1209,13 +1209,13 @@ let flags = {
     466: ["junkball_dropped", "Whether you dropped the Ball of Junk at any point. Unaccessed.", basicBool],
     467: ["chestmark_opened", "HOW MANY FLAGS DO YOU NEED FOR THIS? It keeps you from opening the chest multiple times.", basicBool],
     468: ["spamton_no_room", "Whether you had no room after defeating Spamton NEO. Spawns the chest.", [
-            "Default state",
-            "No room Pacifist",
-            "No room Snowgrave"
-         ]],
+        "Default state",
+        "No room Pacifist",
+        "No room Snowgrave"
+    ]],
     469: ["cant_go_back_tip", "Whether the save point reminded you that you can't go back to the Cyber World if you overwrite your save in Castle Town. Consider this carefully!", basicBool],
     // no 470-499
-    
+
     500: ["times_rudinn_fought", "The number of times you've fought the first Rudinn. Changes its encounter text."],
     501: ["triple_hathy_outcome", "Seems to be intended for some other, non-Hathy fight in room_field2. Changes the dialogue of... a nonexistent NPC in the room. And it's only set by enemies that don't appear in that room.", enemyStates],
     502: ["times_ponman_fought", "The number of times you fought Ponmen. Minor changes to the overworld chasing Ponmen."],
@@ -1226,7 +1226,7 @@ let flags = {
     507: ["fought_rudinn_ranger", "Whether you fought Rudinn Ranger. If so, they don't chase you at all.", basicBool],
     508: ["fought_hathyx", "Whether you fought Head Hathy. If so, they don't chase you at all.", basicBool],
     // no 509-519? not in chapter 2
-    
+
     509: ["pippins_r_act", "Number of Bribe ACTs used on Pippins, apparently multiplied by number of Pippins present. Unique dialogue first time."],
     510: ["pippins_s_act", "Number of Cheat ACTs used on Pippins, apparently multiplied by number of Pippins present. Unaccessed?"],
     511: ["shuttah_s_act", "Whether you've used S-Action during a Shuttah battle. Randomizes flavortext on repeat.", basicBool],
@@ -1234,13 +1234,13 @@ let flags = {
     513: ["shuttah_kris_pic", "Whether you took a photo of Kris during the Shuttah fight. Alters repeat dialogue.", basicBool],
     514: ["shuttah_susie_pic", "Whether you took a photo of Susie during the Shuttah fight. Alters repeat dialogue.", basicBool],
     515: ["shuttah_ralsei_pic", "Whether you took a photo of Ralsei during the Shuttah fight. Alters repeat dialogue.", basicBool],
-    
+
     520: ["rudinn_violences", "The number of Rudinns you have beat up. Subtracted from flag 40 if you apologize."],
     521: ["hathy_violences", "The number of Hathys you have beat up. Subtracted from flag 40 if 2 or less and you apologize."],
     522: ["clover_violence", "Whether you beat up Clover the first time. You can't apologize.", basicBool],
     523: ["rudinn_susie_whacks", "Intended for Susie beating up Rudinns, but unset. See flag 43."],
     524: ["hathy_susie_whacks", "Intended for Susie beating up Hathys, but unset. See flag 43."],
-    
+
     // here be encounter flags
     525: ["encount_first_ww", "Tracks the state of the first random Werewire encounter.", enemyStates],
     526: ["encount_first_tasq", "Tracks the state of the first random Tasque encounter, the one that jumps out at you. Then it's reused for like Giga Queen deaths or something, which is a little broken."], // shoutout to Colinator27 for finding the reuse
@@ -1291,8 +1291,8 @@ let flags = {
     570: ["encount_ult_medic", "Tracks the state of the Ambyu-Lance encounter where Susie demonstrates UltimateHeal.", enemyStates],
     571: ["encount_spamton_neo", "For some reason doesn't use 'encounterflag' but tracks the state of Spamton NEO in case that's ever needed later. There are already like 2 flags for him anyway.", enemyStates],
     572: ["encount_vase_poppup", "Tracks the state of the Poppup under the vase near where Susie and Ralsei leave you.", enemyStates],
-    
-   // Chapter 3
+
+    // Chapter 3
     585: ["encount_rouxls_weather", "Tracks the state of the Rouxls Kaard throuple battle.", enemyStates],
     586: ["encount_zapper_shuttah", "Tracks the state of the Zapper + Shuttah encounter later in TV world.", enemyStates],
     587: ["encount_first_watercooler", "Tracks the state of the Watercooler in the C-rank room.", enemyStates],
@@ -1326,7 +1326,7 @@ let flags = {
     622: ["recruit_rudinn_ranger", "Self-explanatory. Set at the start of Chapter 2.", basicBool],
     623: ["recruit_head_hathy", "Self-explanatory. Set at the start of Chapter 2.", basicBool],
     // 625: ["recruit_king", "Unused. He doesn't have recruit info anyway.", basicBool],
-    
+
     630: ["recruit_medic", "Whether you recruited Ambyu-Lance.", basicBool],
     631: ["recruit_poppup", "Whether you recruited Poppup.", basicBool],
     632: ["recruit_tasque", "Whether you recruited Tasque.", basicBool],
@@ -1367,116 +1367,116 @@ let flags = {
     667: ["recruit_winglade", "Recruit progress.", basicBool],
     668: ["recruit_organikk", "Recruit progress.", basicBool],
     669: ["recruit_ms_mizzle", "Recruit progress.", basicBool],
-    
+
     734: ["ral_susie_festival_talk", "Whether you completed the talk between Susie and Ralsei prior to Tenna's introduction in Chapter 3.", basicBool],
-    
+
     800: ["cafe_topleft", "The recruit seated in the top-left of the Cafe. Defaults to Jigsawry.", recruits],
     801: ["cafe_topright", "The recruit seated in the top-right of the Cafe. Defaults to Rudinn.", recruits],
     802: ["cafe_bottomleft", "The recruit seated in the bottom-left of the Cafe. Defaults to Hathy.", recruits],
     803: ["cafe_bottomright", "The recruit seated in the bottom-right of the Cafe. Defaults to Rudinn.", recruits],
-    
+
     810: ["beat_grazing", "Whether you beat the grazing challenge in the Party Dojo.", basicBool],
     811: ["beat_dojo_clover", "Whether you beat Clover's rematch in the Party Dojo.", basicBool],
     812: ["beat_tm_says", "Whether you beat the 'Tasque Manager Says' challenge in the Party Dojo.", basicBool],
     813: ["beat_allstars", "Whether you beat the Ch2 All Stars challenge in the Party Dojo.", basicBool],
     814: ["beat_joe", "Whether you defeated Jigsaw Joe in the Party Dojo and took his life savings.", basicBool],
-    
+
     // wow things are really opening up now
-    
+
     // credit to Nisha Wolfe of Spamton Save Editor for the vessel names, saved a lot of work https://saveeditor.spamton.com/deltarune2
     900: ["vessel_head", "The head of your vessel.", [ // if you want better options find a way to include images in dropdowns
-            "Bald",
-            "Kris-like",
-            "Left lock",
-            "Middle part",
-            "Thick hair",
-            "Loose",
-            "Balding line",
-            "Refined"
-         ]],
+        "Bald",
+        "Kris-like",
+        "Left lock",
+        "Middle part",
+        "Thick hair",
+        "Loose",
+        "Balding line",
+        "Refined"
+    ]],
     901: ["vessel_torso", "The body of your vessel.", [
-            "Long sleeves",
-            "Short sleeves",
-            "Baggy sleeves",
-            "Baggier sleeves",
-            "Zipper",
-            "Buttons"
-         ]],
+        "Long sleeves",
+        "Short sleeves",
+        "Baggy sleeves",
+        "Baggier sleeves",
+        "Zipper",
+        "Buttons"
+    ]],
     902: ["vessel_legs", "The legs of your vessel.", [
-            "Wider on right",
-            "Wider on right",
-            "Wider on right",
-            "Wider on right",
-            "Wider on left"
-         ]],
+        "Wider on right",
+        "Wider on right",
+        "Wider on right",
+        "Wider on right",
+        "Wider on left"
+    ]],
     903: ["vessel_food", "Your vessel's favorite food.", [
-            "Sweet",
-            "Soft",
-            "Sour",
-            "Salty",
-            "Pain",
-            "Cold"
-         ]],
+        "Sweet",
+        "Soft",
+        "Sour",
+        "Salty",
+        "Pain",
+        "Cold"
+    ]],
     904: ["vessel_blood", "Your favorite blood type.", [
-            "A",
-            "AB",
-            "B",
-            "C",
-            "D"
-         ]],
+        "A",
+        "AB",
+        "B",
+        "C",
+        "D"
+    ]],
     905: ["vessel_color", "Your vessel's favorite color.", [
-            "Red",
-            "Blue",
-            "Green",
-            "Cyan"
-         ]],
+        "Red",
+        "Blue",
+        "Green",
+        "Cyan"
+    ]],
     906: ["vessel_feeling", "How you feel about your vessel.", [
-            "Love",
-            "Hope",
-            "Disgust",
-            "Fear"
-         ]],
+        "Love",
+        "Hope",
+        "Disgust",
+        "Fear"
+    ]],
     907: ["vessel_honest", "Were you honest about your vessel choices?", ["Yes", "No"]],
     908: ["vessel_seizure", "Do you acknowledge the possibility of pain and seizure?", ["Yes", "No"]],
     909: ["vessel_gift", "The gift you give your vessel. Stored in reverse order for some reason.", {
-            "-3": "Voice",
-            "-2": "Bravery",
-            "-1": "Ambition",
-            "0": "Mind",
-            "1": "Kindness",
-        }],
+        "-3": "Voice",
+        "-2": "Bravery",
+        "-1": "Ambition",
+        "0": "Mind",
+        "1": "Kindness",
+    }],
     910: ["ch1_egg_room", "Your progress to finding... him.", [
-            "Default state",
-            "Entered room",
-            "Interacted with man"
-         ]],
+        "Default state",
+        "Entered room",
+        "Interacted with man"
+    ]],
     911: ["got_ch1_egg", "Set when entering Chapter 2 if you had or deposited the Chapter 1 egg, but not if you dropped it. Maybe. It checks the key item.", basicBool],
     912: ["language", "Damn it Toby you already have global.lang what more do you want", ["English", "Japanese"]],
     913: ["interacted_man_car", "Whether you saw the man wave at you from his car, if flag 910 up there was 2 (even if you refused the offer).", basicBool],
     914: ["chapter_started", "The chapter you started your current save file on. Set to 1 when continuing a Chapter 1 file into 2. Only used for a little Light World stats text."],
     915: ["snowgrave_plot", "Your progress on the Snowgrave Route. This is a big one.", {
-            "0": "Default state",
-            "1": "Froze tutor Virovirokun",
-            "1.5": "Froze Trash Zone enemies",
-            "1.75": "Froze roadway enemies",
-            "2": "Ready for Freeze Ring",
-            "3": "Got Freeze Ring",
-            "4": "Passed forcefield",
-            "5": "Froze mouse puzzle",
-            "6": "SnowGrave.",
-            "7": "Entered mansion",
-            "8": "Rouxls's condition explained",
-            "9": "Did not see Suselle scene",
-            "19": "Seen Noelle with Rudy",
-            "20": "Creeped Noelle out"
-        }],
+        "0": "Default state",
+        "1": "Froze tutor Virovirokun",
+        "1.5": "Froze Trash Zone enemies",
+        "1.75": "Froze roadway enemies",
+        "2": "Ready for Freeze Ring",
+        "3": "Got Freeze Ring",
+        "4": "Passed forcefield",
+        "5": "Froze mouse puzzle",
+        "6": "SnowGrave.",
+        "7": "Entered mansion",
+        "8": "Rouxls's condition explained",
+        "9": "Did not see Suselle scene",
+        "19": "Seen Noelle with Rudy",
+        "20": "Creeped Noelle out"
+    }],
     916: ["snowgrave_fail", "Whether you failed the Snowgrave Route at any point, by any action. Reverts practically every effect of the route.", basicBool],
     917: ["ch2_egg_room", "Your progress to finding him. Again.", [
-            "Default state",
-            "Killed by dog",
-            "Entered egg room",
-            "Interacted with man"
-         ]],
+        "Default state",
+        "Killed by dog",
+        "Entered egg room",
+        "Interacted with man"
+    ]],
     918: ["got_ch2_egg", "Whether you got the Chapter 2 egg, for Temmie's collection.", basicBool],
     919: ["times_noelle_leveled", "Like flag 65 but for Noelle in particular. Unaccessed."],
     920: ["got_ch2_moss", "Whether you got the Moss in Chapter 2 and the Moss Finder title.", basicBool],
@@ -1488,7 +1488,7 @@ let flags = {
     926: ["iceshocked_encounters", "The number of encounters defeated with IceShock. Unaccessed."],
     // no 927?
     928: ["creepy_steps", "The number of steps you take toward Noelle (0-3) after the hospital scene on Snowgrave. Yeah, that's a thing."],
-    
+
     930: ["got_ch3_egg", "Whether you got the Chapter 3 egg.", basicBool],
 
     932: ["amount_pain_ch1", "Number of times hit in Chapter 1, used for trophies."],
@@ -1499,21 +1499,21 @@ let flags = {
     937: ["amount_pain_ch4", "Number of times hit in Chapter 4, used for trophies."],
     938: ["amount_ice_e_pain_ch4", "Number of times you looked at the ICE-E pain scale in Chapter 4, used for trophies."],
     939: ["amount_treasure", "Number of chests opened, used for trophies."],
-    
+
     950: ["shadow_failed_ch2", "Whether you used the Shadow Crystal in Chapter 2 and saw nothing. 952 is more interesting.", basicBool],
     951: ["glass_failed_ch2", "Whether you used the Glass in Chapter 2 and saw nothing. 953 and 281 are more interesting.", basicBool],
     952: ["shadow_lab", "Whether you saw the computer lab using the Shadow Crystal.", basicBool],
-    953: ["glass_susie_glare", "Whether you saw Susie glare at you using the Glass.", basicBool],     
+    953: ["glass_susie_glare", "Whether you saw Susie glare at you using the Glass.", basicBool],
     954: ["gave_JEVIL_crystal", "Whether you gave Seam JEVIL's Shadow Crystal.", basicBool],
     // no 955-960
     961: ["failed_spam_crystal", "Whether you got JEVIL's Shadow Crystal but failed to find Spamton's, and told Seam. They seem quite dejected...", basicBool], // :(
-    
+
     1001: ["tiny_pyramid_state", "Progress finding the even tinier pyramid in Desert Board. Resets to 0 if you enter Rouxls's shop.", [
-             "Default state",
-             "Tiny pyramid mentioned",
-             "Rouxls evicted",
-             "Locked out"
-          ]],
+        "Default state",
+        "Tiny pyramid mentioned",
+        "Rouxls evicted",
+        "Locked out"
+    ]],
     1002: ["fought_shadowmantle", "Whether you've started the Shadow Mantle fight. Speeds up repeat fights, as your death isn't a real Game Over and doesn't reload a save.", basicBool],
     1003: ["board_losses", "Number of Game Overs attained in Tenna's show."],
     1004: ["got_crowd_treasure", "Whether you opened the chest in the lower-left corner of that maze with Zapper+Shuttah fights."],
@@ -1527,11 +1527,11 @@ let flags = {
     1012: ["gameshow_name_1", "First letter selected for Kris's name on the game show.", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]],
     1013: ["gameshow_name_2", "Second letter selected for Kris's name on the game show.", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]],
     1014: ["gameshow_name_3", "Third letter selected for Kris's name on the game show.", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]],
-    
+
     1017: ["fave_weather", "Whose attack you liked better, causing the Weather to not Stick Together.", [
-             "Elnina",
-             "Lanino"
-          ]],
+        "Elnina",
+        "Lanino"
+    ]],
     1018: ["tried_preegg_board", "Whether you tried the board that's a prerequisite for solving Nowhere. Unaccessed?", basicBool],
     1019: ["quiz_right_answers", "Number of correct answers (totalled on all characters) in the most recent of Tenna's quizzes. Slightly alters the Tenna-sphinx dialogue."],
     1020: ["got_power_croissant", "Whether Susie has obtained the Power Croissant, allowing her to pick up boxes, pots, weeds, and Ralsei.", basicBool],
@@ -1543,21 +1543,21 @@ let flags = {
     // 1026?
     1027: ["s_star_splat", "Whether you interacted with the stars in the S-Rank room, causing one of them to fall on the floor.", basicBool],
     1028: ["got_ramb_prize_1", "Whether you got the first board reward from Ramb (if available based on rank).", [
-             "Default state",
-             "Got prize",
-             "Got nothing (Z-Rank)"
-          ]],
+        "Default state",
+        "Got prize",
+        "Got nothing (Z-Rank)"
+    ]],
     1029: ["ramb_back_talk_2", "How much you've talked with Ramb backstage. More complicated?", [
-             "Default state",
-             "Ramb moved away from the door the first time",
-             "'I'm glad you're having REAL fun, Kris. (moves for the second time)'",
-             "Talked round 3 (unused?)"
-          ]],
+        "Default state",
+        "Ramb moved away from the door the first time",
+        "'I'm glad you're having REAL fun, Kris. (moves for the second time)'",
+        "Talked round 3 (unused?)"
+    ]],
     1030: ["got_ramb_prize_2", "Whether you got the second board reward from Ramb (if available based on rank).", [
-             "Default state",
-             "Got prize",
-             "Got nothing (Z-Rank)"
-          ]],
+        "Default state",
+        "Got prize",
+        "Got nothing (Z-Rank)"
+    ]],
     1031: ["entered_changing_room", "Whether you've interacted to enter the S- or Z-Rank room. Stops Susie's and Ralsei's dialogue on repeat.", basicBool],
     1032: ["ramb_first_talk", "Whether you've talked to Ramb at least once in the Green Room. Alters repeat interaction.", basicBool],
     1033: ["tried_racing", "Whether you've interacted with the TV with the racing game at least once. Alters repeat interaction.", basicBool],
@@ -1566,15 +1566,15 @@ let flags = {
     // 1036?
     1037: ["ral_cheer_equip", "Number of times you've equipped the Blue Ribbon to Ralsei, giving progress of a cheer chant."],
     1038: ["pipis_sounds", "Status of the Pipis in your inventory. Increases over time.", [
-             "Default state",
-             "Chirping",
-             "Clucking"
-          ]],
+        "Default state",
+        "Chirping",
+        "Clucking"
+    ]],
     1039: ["tenna_pipis_state", "State of Tenna's Pipis in the Bonus Zone (without Spamton).", [
-             "Default state",
-             "Tenna panicked",
-             "Got Pipis"
-          ]],
+        "Default state",
+        "Tenna panicked",
+        "Got Pipis"
+    ]],
     /*1040: ["hole_warp_num", "Progress using holes to warp in unused boards of Chapter 3?", [
              "Default state",
              "Found first warp",
@@ -1589,36 +1589,36 @@ let flags = {
     1045: ["susie_heal_practice", "The number of times you have used UltraHeal/OKHeal/BetterHeal. Improves the spell. Caps at 5 in Chapter 3, 15 in Chapter 4."],
     // 1046?
     1047: ["knight_ch3_status", "Whether you beat the Knight... down to 80% of its health. Also saved to ini.", [
-             "Default state",
-             "Won",
-             "Lost"
-          ]],
+        "Default state",
+        "Won",
+        "Lost"
+    ]],
     1048: ["lancer_cost", "Amount spent on Lancer in Board 2. Decreases if he is photographed before purchase.", {
-             0: "Uninitialized",
-             9: "9 points",
-             99: "99 points",
-             999: "999 points"
-          }],
+        0: "Uninitialized",
+        9: "9 points",
+        99: "99 points",
+        999: "999 points"
+    }],
     1049: ["board_1_battles", "Number of battles engaged in on Board 1."],
     1050: ["beat_mantle", "Whether the Shadow Mantle boss was defeated.", basicBool],
     1051: ["times_admitted_cheat", "Number of times you admitted to Zappers that you're a cheater, usually triggering a battle. ?"],
     1052: ["tenna_deleted_grass", "Whether Tenna deleted the grass to keep Susie from wasting time on it in the unused Board 3.", basicBool],
     // 1053?
     1054: ["tenna_voice_pitch", "Appears to be a volatile factor applied to Tenna's voice bite. Only used for his flashback.", {
-             "0": "Uninitialized",
-             "0.8": "80% pitch",
-             "1": "Full pitch"
-          }],
+        "0": "Uninitialized",
+        "0.8": "80% pitch",
+        "1": "Full pitch"
+    }],
     1055: ["sword_route_progress", "Progress on the Sword Route, the Chapter 3 side quest for the Shadow Mantle.", {
-             "0": "Not started",
-             "1": "Got Ice Key",
-             "1.5": "Entered Ice Palace",
-             "2": "She was used up.",
-             "3": "Got Shelter Key",
-             "4": "Entered red dungeon",
-             "5": "Entered shelter",
-             "6": "Defeated boss"
-          }],
+        "0": "Not started",
+        "1": "Got Ice Key",
+        "1.5": "Entered Ice Palace",
+        "2": "She was used up.",
+        "3": "Got Shelter Key",
+        "4": "Entered red dungeon",
+        "5": "Entered shelter",
+        "6": "Defeated boss"
+    }],
     1056: ["kris_tenna_chat", "Whether Tenna tried to justify himself to Kris between rounds.", basicBool],
     1057: ["unused", "Seems to be a tracker for a scrapped backstage sequence in Chapter 3? There's code to advance to 2, but not to 1."],
     1058: ["found_island_tenna", "Whether you found Tenna at the Tropic of Love on the original game, and heard his musings.", basicBool],
@@ -1626,70 +1626,70 @@ let flags = {
     1060: ["got_elnina_controller", "Whether you got the Elnina Controller for an unused game. The item ID got repurposed as the Odd Controller.", basicBool],
     1061: ["shadowgunner_photos", "Number of photos taken of the Shadowmen shooting at you from trees. They have bunny ears after 5."],
     1062: ["got_curtain_saber10", "Whether you got the Saber10 from the quiet person behind the S-Rank curtain.", basicBool],
-    
+
     1066: ["talked_ramb_fountain", "Whether Ramb explained (after Board 3) that he saw Kris make the fountain.", basicBool],
     1067: ["got_shadowmantle", "Whether you've opened the chest containing the Shadow Mantle.", basicBool],
     1068: ["talked_lancer_greenroom", "Whether you've talked to Lancer in the Green Room (and he phased through the door).", basicBool],
-    
+
     1071: ["ch3_couch_skip", "Whether you used the couch to skip to Board 1 in Chapter 3.", basicBool],
     // 1072?
     1073: ["lancer_tv_name", "What you (and Ralsei) named Lancer in Tenna's quiz.", [
-             "Lancer",
-             "Dancer",
-             "Prancer",
-             "Mr. Generosity"
-          ]],
+        "Lancer",
+        "Dancer",
+        "Prancer",
+        "Mr. Generosity"
+    ]],
     1074: ["got_in_s_rank_1", "Whether you've talked to the Zapper guarding the S-Rank room and gotten in for board 1.", basicBool],
     1075: ["got_in_s_rank_2", "Whether you've talked to the Zapper guarding the S-Rank room and gotten in for board 2.", basicBool],
     1076: ["counterfeit_s_1", "Buying the counterfeit S-Rank for Board 1.", [
-             "Default state",
-             "Have counterfeit",
-             "Reset"
-          ]],
+        "Default state",
+        "Have counterfeit",
+        "Reset"
+    ]],
     1077: ["counterfeit_s_2", "Buying the counterfeit S-Rank for Board 2.", [
-             "Default state",
-             "Have counterfeit",
-             "Reset"
-          ]],
+        "Default state",
+        "Have counterfeit",
+        "Reset"
+    ]],
     1078: ["got_ch3_moss", "Whether you got the Moss in Chapter 3 and the Moss Mystery title.", basicBool],
     1079: ["drank_oasis", "Whether you chose to deplete the oasis by drinking it. Dries up all the trees.", basicBool],
     1080: ["suziezilla_losses", "Times lost at Suziezilla, up to 8."],
     1081: ["suziezilla_result", "Exactly how much you won at Suziezilla.", [
-             "Default state",
-             "Destroyed by Spamton's bit shot without ever hitting him",
-             "Declared win by Tenna",
-             "Defeated final wave"
-          ]],
+        "Default state",
+        "Destroyed by Spamton's bit shot without ever hitting him",
+        "Declared win by Tenna",
+        "Defeated final wave"
+    ]],
     // 1082?
     1083: ["got_lancer_name_q", "Whether you've faced the question of Tenna forgetting Lancer's name. Unaccessed (there's an unused follow-up).", basicBool],
     1084: ["ramb_game_opinion", "Your choice to Ramb of whether you're enjoying Tenna's game.", [
-             "Default state",
-             "Super fun",
-             "Eh"
-          ]],
+        "Default state",
+        "Super fun",
+        "Eh"
+    ]],
     1085: ["unused_puzzle_start", "Seems to be set when you enter an unused Chapter 3 room with a board puzzle?", basicBool],
     1086: ["beat_doom_shadowman", "Whether you've defeated the Shadowman on the Doom Board, to prompt the Zapper encounter instead.", basicBool],
     1087: ["entered_ice_palace", "Seems to be? set upon entering the Ice Palace on Sword Board 2 as a checkpoint.", basicBool],
     1088: ["cheated_dice_val", "Number on the die in the unused room where a Pippins challenges you to roll even.", [
-             "Uninitialized",
-             "1", "2", "3", "4", "5", "6"
-          ]],
+        "Uninitialized",
+        "1", "2", "3", "4", "5", "6"
+    ]],
     1089: ["cooking_losses", "Times lost at the cooking game."],
     1090: ["parent_lock_1_scene", "Whether you've completed specifically the introductory scene activating the puzzle for Parental Lock 1.", basicBool],
     1091: ["susie_notice_sword", "Status of Susie noticing Kris has a sword in the minigame if the OddController was obtained.", [
-             "Default state",
-             "Sword used",
-             "Susie commented"
-          ]],
+        "Default state",
+        "Sword used",
+        "Susie commented"
+    ]],
     1092: ["ch3_bibliox_state", "Progress obtaining the TripTicket to Nowhere from the Bibliox.", [
-             "Default state",
-             "Wardrobe mentioned",
-             "Wardrobe appeared",
-             "Wardrobe checked",
-             "Got TripTicket",
-             "Got post-Mantle hint",
-             "Got alternate TripTicket"
-          ]],
+        "Default state",
+        "Wardrobe mentioned",
+        "Wardrobe appeared",
+        "Wardrobe checked",
+        "Got TripTicket",
+        "Got post-Mantle hint",
+        "Got alternate TripTicket"
+    ]],
     1093: ["jailed_cheater", "Whether you confessed to the Zapper that you are cheaters, and went into the highly escapable prison.", basicBool],
     1094: ["parent_lock_1", "Whether you solved the first parental lock in Chapter 3.", basicBool],
     1095: ["parent_lock_2", "Whether you solved the second parental lock in Chapter 3.", basicBool],
@@ -1699,10 +1699,10 @@ let flags = {
     1099: ["lancer_control_num", "Number of Lancer Controllers obtained."],
     1100: ["got_cooltrashy_reward", "Whether you got Trashy's DeluxeDinner.", basicBool],
     1101: ["point_chest_state", "Progress with the 10-point chest in the dust pile at the start of Chapter 3.", [
-             "Default state",
-             "Found chest",
-             "Got points"
-          ]],
+        "Default state",
+        "Found chest",
+        "Got points"
+    ]],
     1102: ["zapper_sneezed", "Whether a Zapper left of the Chapter 3 starting area gave itself away by sneezing.", basicBool],
     1103: ["ice_key_fail", "Whether you reached the Ice Palace with no key, thus forgetting something important.", basicBool],
     1104: ["got_cut_ribbick_item", "Unused? Set for a Ribbick trigger in what I think is an unused room.", basicBool],
@@ -1713,35 +1713,35 @@ let flags = {
     1109: ["save_preegg_x", "X coordinate of the persistent block needed for the Ch3 egg."],
     1110: ["save_preegg_y", "Y coordinate of the persistent block needed for the Ch3 egg."],
     1111: ["save_preegg_block", "Status of the puzzle with the persistent block needed for the Ch3 egg.", [
-             "Default state",
-             "Block saved",
-             "Puzzle solved"
-          ]],
+        "Default state",
+        "Block saved",
+        "Puzzle solved"
+    ]],
     1112: ["solve_nowherepuzz", "Whether you've solved the block puzzle to get to the Chapter 3 Bibliox with the TripTicket.", basicBool],
     1113: ["guard_zapper_buttons", "Progress with the Zapper guarding the cold area.", [
-             "Default state",
-             "Played chest like bongos",
-             "Shood off"
-          ]],
+        "Default state",
+        "Played chest like bongos",
+        "Shood off"
+    ]],
     1114: ["guard_zapper_fought", "Attempting to do nothing against the Zapper guarding the cold area.", basicBool],
     1115: ["mailroom_status", "Progress entering Tenna's secret mail room.", [
-             "Default state",
-             "Discovered",
-             "Entered",
-             "Found empty"
-          ]],
+        "Default state",
+        "Discovered",
+        "Entered",
+        "Found empty"
+    ]],
     1116: ["points_from_battle", "Number of points earned in battles on the current board. Used for the board score."],
     1117: ["points_spent", "Number of points spent on the current board. Used to include them in the board score as well as held points."],
     1118: ["last_minigame_points", "Seems to be? the number of points earned in the last PHYSICAL CHALLENGE, tracked into the overall round evaluation."],
     1119: ["cooler_beg_count", "Number of times begged for mercy from Watercooler. Alters repeat flavortext."],
-    
+
     1122: ["board_key_count_2", "Board 1 key count. Used to award bonuses for extra keys. Also incremented if you buy the useless board 2 key.", basicBool],
     1123: ["entered_parent_0", "Whether you've entered the room before the first Parental Lock, acknowledged by the party.", basicBool],
     1124: ["tenna_falling_stuff", "What Tenna last called the falling objects on Board 1. Alters Board 2 dialogue.", [
-             "Default state",
-             "Rocks",
-             "Peaches"
-          ]],
+        "Default state",
+        "Rocks",
+        "Peaches"
+    ]],
     1125: ["started_cowboy_game", "Whether you reached the first cowboy game in Chapter 3.", basicBool],
     1126: ["times_caught_wc_topleft", "Number of times captured in the top-left zone of the unused big sneaking section.", basicBool],
     1127: ["times_caught_wc_topright", "Number of times captured in the top-right zone of the unused big sneaking section.", basicBool],
@@ -1760,41 +1760,41 @@ let flags = {
     1140: ["got_one_point", "Whether you got the chest with a singular point in the room with the Zapper who takes you nowhere.", basicBool],
     1141: ["ch3_bibliox_talk", "Number of times talked to the Chapter 3 in-game Bibliox. Dialogue does not reset."],
     1142: ["cam_remind_solve", "Apparently? used for the unused camerareminder puzzle in Chapter 3.", [
-             "Default state",
-             "Solved",
-             "Solved with Ralsei"
-          ]],
+        "Default state",
+        "Solved",
+        "Solved with Ralsei"
+    ]],
     1143: ["cooler_avoid_num", "Number of times you entered the room with the second Watercooler fight. They get closer up to 5 times, then block the way. Set to 50 after actually doing the fight."],
     1144: ["cooler_2_flirt", "Status flirting with the second Watercooler. Affects curtain flavortext.", [
-             "Default state",
-             "Flirted",
-             "Did not flirt",
-             "Checked curtain after flirting"
-          ]],
+        "Default state",
+        "Flirted",
+        "Did not flirt",
+        "Checked curtain after flirting"
+    ]],
     // 1145?
     1146: ["interacted_curtain_cooler", "Whether you interacted with the curtain after fighting the second Watercooler. Unaccessed?", basicBool],
     1147: ["lawnmower_beat_paper", "Whether you used the lawnmower to destroy the Shadowmen's contracts. Earns their gratitude if not previously LOST.", basicBool],
     1148: ["rouxls_snacks_ch3", "Rouxls's progress when he shows up with the weather duo.", [
-             "Default state",
-             "Showed up for snacks",
-             "Took snacks and left"
-          ]],
+        "Default state",
+        "Showed up for snacks",
+        "Took snacks and left"
+    ]],
     // 1149?
     1150: ["parent_lock_3", "Progress with the third parental lock puzzle.", {
-             "0": "Default state",
-             "1": "Activated",
-             "1.5": "Used TV",
-             "2": "Solved block puzzle",
-             "3": "Solved bridge puzzle",
-             "4": "Got camera"
-          }],
+        "0": "Default state",
+        "1": "Activated",
+        "1.5": "Used TV",
+        "2": "Solved block puzzle",
+        "3": "Solved bridge puzzle",
+        "4": "Got camera"
+    }],
     1151: ["saw_spamtenna_scene", "Whether you saw Tenna coat Spamton in foam in self-defense.", basicBool],
     1152: ["horse_ralsei", "Whether Ralsei forgot to change out of his horse costume.", basicBool],
     1153: ["hay_response", "Set based on how Susie reacts to Ralsei considering eating hay. Depends on whether you've previously eaten moss.", [
-             "Default state",
-             "It's for sleeping (no moss)",
-             "Eat spinach (ate moss with Susie)"
-          ]],
+        "Default state",
+        "It's for sleeping (no moss)",
+        "Eat spinach (ate moss with Susie)"
+    ]],
     1154: ["bonus_zone_treasure_1", "Whether you got the 1st treasure chest (of points) in Tenna's bonus zone.", basicBool],
     1155: ["bonus_zone_treasure_2", "Whether you got the 2nd treasure chest (of points) in Tenna's bonus zone.", basicBool],
     1156: ["bonus_zone_treasure_3", "Whether you got the 3rd treasure chest (of points) in Tenna's bonus zone.", basicBool],
@@ -1818,10 +1818,10 @@ let flags = {
     1174: ["rank_board_2", "Your rank on Board 2.", tennaRanks],
     // 1175?
     1176: ["oddcontroller_state", "Progress obtaining the OddController.", [
-             "Default state",
-             "Tried game",
-             "Got controller"
-          ]],
+        "Default state",
+        "Tried game",
+        "Got controller"
+    ]],
 
     1177: ["got_tenna_tie", "Whether you got the Tenna Tie from the Ball Machine.", basicBool],
     1178: ["got_execbuffet", "Whether you got the Executive Buffet from the Ball Machine.", basicBool],
@@ -1832,27 +1832,27 @@ let flags = {
     // 1183?
     1184: ["sneaking_fast", "Whether the party has decided to sneak really fast.", basicBool],
     1185: ["s_rank_room_answer", "What you told Susie you were doing in the S-Rank room.", [
-             "Default state",
-             "Playing games",
-             "Nothing"
-          ]],
+        "Default state",
+        "Playing games",
+        "Nothing"
+    ]],
     1186: ["s_rank_return_2", "Whether you've gotten the scene of Ralsei mentioning RPGs after returning from the Sword Island Board.", basicBool],
     1187: ["z_rank_unlock", "Whether you've talked to unlock the Z-Rank door. Changes for each board.", [
-             "Default state",
-             "Open Board 1",
-             "Open Board 2"
-          ]],
+        "Default state",
+        "Open Board 1",
+        "Open Board 2"
+    ]],
     1188: ["cooler_status", "Status of the Watercooler encounter in the C-Rank room.", enemyStates],
     1189: ["bought_suziezilla", "Whether you've purchased access to the Suziezilla game.", basicBool],
     1190: ["control_unjumble", "Whether you chose to... keep your controls? It's reversed, Ralsei playing as Kris (board 2) is actually the 0 value.", [
-             "You can have a turn",
-             "Let's all go back to normal"
-          ]],
+        "You can have a turn",
+        "Let's all go back to normal"
+    ]],
     1191: ["ch3_manhole_activation", "When you last used the Z-Rank manhole to reach the original game. Used to open the return manhole.", [
-             "Default state",
-             "Opened after board 1",
-             "Opened after board 2"
-          ]],
+        "Default state",
+        "Opened after board 1",
+        "Opened after board 2"
+    ]],
     1192: ["s_rank_return_3", "Whether you've gotten the scene of Susie and Ralsei racing after returning with the Shadow Mantle.", basicBool],
     1193: ["cooking_best_score", "Highest score at the cooking minigame."],
     1194: ["cooking_best_rank", "The corresponding rank to your cooking minigame high score.", tennaRanks],
@@ -1862,16 +1862,16 @@ let flags = {
     1198: ["suziezilla_best_rank", "The corresponding rank to your Susiezilla high score.", tennaRanks],
     1199: ["susie_tenna_chat_1", "Whether you saw Susie compliment Tenna's show between boards.", basicBool],
     1200: ["ralsei_face_thoughts", "Your commentary on Ralsei's face, if not watching Susie.", [
-             "Default state",
-             "Seen it before",
-             "It's unique",
-             "It's cute"
-          ]],
+        "Default state",
+        "Seen it before",
+        "It's unique",
+        "It's cute"
+    ]],
     1201: ["tenna_opinion_susie", "Your opinion on Tenna as given to Susie before Board 2.", [
-             "Default state",
-             "He's fun",
-             "He sucks"
-          ]],
+        "Default state",
+        "He's fun",
+        "He sucks"
+    ]],
     1202: ["got_trash_ch3_1", "Whether you opened the 1st trash can in Chapter 3, with 10 points inside.", basicBool],
     1203: ["got_trash_ch3_2", "Whether you opened the 2nd trash can in Chapter 3, with nothing inside.", basicBool],
     1204: ["got_trash_ch3_3", "Whether you opened the 3rd trash can in Chapter 3, with the TVSlop.", basicBool],
@@ -1879,57 +1879,57 @@ let flags = {
     1206: ["got_trash_ch3_5", "Whether you opened the 5th trash can in Chapter 3, with 2 points inside.", basicBool],
     1207: ["got_trash_ch3_6", "Whether you opened the 6th trash can in Chapter 3, with 50 points inside.", basicBool],
     1208: ["susie_tenna_chat_2", "Progress with Susie questioning Tenna's show between boards.", [
-             "Default state",
-             "Started scene",
-             "Finished scene"
-          ]],
+        "Default state",
+        "Started scene",
+        "Finished scene"
+    ]],
     1209: ["got_trash_ch3_7", "Whether you opened the 7th trash can in Chapter 3, with nothing inside.", basicBool],
     1210: ["elnina_greenroom_comment", "What you told Elnina about her relationship in the Green Room.", [
-             "Default state",
-             "You're strong and independent",
-             "Your forecast is love"
-          ]],
+        "Default state",
+        "You're strong and independent",
+        "Your forecast is love"
+    ]],
     1211: ["lanino_greenroom_comment", "What you told Lanino about his relationship in the Green Room.", [
-             "Default state",
-             "You're strong and independent",
-             "Your forecast is love"
-          ]],
+        "Default state",
+        "You're strong and independent",
+        "Your forecast is love"
+    ]],
     1212: ["susiebridge_state", "Progress on the unused Susie bridging minigame. There isn't any code to set it to 1, very unused.", [
-             "Default state",
-             "???",
-             "Complete"
-          ]],
+        "Default state",
+        "???",
+        "Complete"
+    ]],
     1213: ["got_300_points", "Whether you got the chest of points in the room with a Susie board puzzle.", basicBool],
     1214: ["who_asked_okay", "Who you asked whether they were okay in the Chapter 3 parental lock room.", [
-             "Default state",
-             "Susie",
-             "Ralsei",
-             "Neither"
-          ]],
+        "Default state",
+        "Susie",
+        "Ralsei",
+        "Neither"
+    ]],
     1215: ["susie_reassurance", "What you said to Susie (if talking to her) in the parental lock room.", [
-             "Default state",
-             "I'm not a dream (creepy)",
-             "Your friendships are real (fake-heroic)",
-             "Sucks to be you (unwittingly ironic)"
-          ]],
+        "Default state",
+        "I'm not a dream (creepy)",
+        "Your friendships are real (fake-heroic)",
+        "Sucks to be you (unwittingly ironic)"
+    ]],
     1216: ["ralsei_reassurance", "What you said to Ralsei (if talking to him) in the parental lock room.", [
-             "Default state",
-             "It's ok to take it easy",
-             "Stay on task"
-          ]],
+        "Default state",
+        "It's ok to take it easy",
+        "Stay on task"
+    ]],
     1217: ["icecream_for_susie", "What you said to Ralsei about getting ice cream from him to Susie.", [
-             "Default state",
-             "I'm not going with her",
-             "I'm saying it's from me",
-             "Of course"
-          ]],
+        "Default state",
+        "I'm not going with her",
+        "I'm saying it's from me",
+        "Of course"
+    ]],
     1218: ["festival_ral_whoelse", "Who you told Ralsei you're going to the festival with, if not Susie.", [
-             "Default state",
-             "Noelle",
-             "Ralsei",
-             "Berdly (BERDLY!?)",
-             "Not going"
-          ]],
+        "Default state",
+        "Noelle",
+        "Ralsei",
+        "Berdly (BERDLY!?)",
+        "Not going"
+    ]],
     1219: ["tried_suziezilla", "Whether you completed the intro scene for the Susiezilla game.", basicBool],
     1220: ["beat_suziezilla?", "Whether you reached the elusive BOARD CLEAR of the Suziezilla game.", basicBool],
     1221: ["got_cooler_crater", "Whether you got the 200 points from underneath the C-Rank Watercooler.", basicBool],
@@ -1942,10 +1942,10 @@ let flags = {
     1228: ["entered_coldplace", "Whether you've entered the Cold Place and such has been acknowledged by the party.", basicBool],
     1229: ["last_sneak_times_found", "Number of times caught by the Zapper who later reveals he doesn't wanna be here either."],
     1230: ["sneak_zapper_state", "Progress with the Zapper who doesn't wanna be here either.", [
-             "Default state",
-             "Zapper joined",
-             "Passed room"
-          ]],
+        "Default state",
+        "Zapper joined",
+        "Passed room"
+    ]],
     1231: ["parent_lock_3_done", "Whether you solved the undefined parental lock in Chapter 3, optional on Sword Route.", basicBool],
     1232: ["started_cowboy_game_2", "Whether you reached the second cowboy game in Chapter 3.", basicBool],
     1233: ["parent_lock_3_used", "Whether you went through the door after the undefined parental lock in Chapter 3.", basicBool],
@@ -1955,18 +1955,18 @@ let flags = {
     1237: ["got_rouxls_block", "Whether you purchased Rouxls's block for 1 point. Unaccessed?", basicBool],
     1238: ["ramb_push_3", "Whether you've moved Ramb to play the final game. Enjoy the games, eh, luv?", basicBool],
     1239: ["ramb_petrify_lore", "Your progress in learning about why Ramb petrified.", [
-             "Default state",
-             "Spawned Pippins",
-             "'No one will shed a tear for him.'"
-          ]],
+        "Default state",
+        "Spawned Pippins",
+        "'No one will shed a tear for him.'"
+    ]],
     1240: ["talk_starwalker_ch3", "Whether you've talked to Starwalker in the first room after escaping Tenna.", basicBool],
     1241: ["ral_suspect_zapper", "Whether you've interacted with the Zapper guarding the parental locks, preventing Ralsei's dialogue from repeating.", basicBool],
     1242: ["best_food_stack", "Number of food items successfully served in a single simultaneous stack in the cooking minigame. Used to track the record on replay."],
     1243: ["zapper_jail_2", "Progress on the second highly ineffective jail you are placed in by a Zapper while sneaking.", [
-             "Default state",
-             "Imprisoned",
-             "Escaped"
-          ]],
+        "Default state",
+        "Imprisoned",
+        "Escaped"
+    ]],
     1244: ["parent_got_camera", "Whether you got the camera in the Parental Lock 3 puzzle.", basicBool],
     1245: ["num_parent_photos", "Number of photos taken in the Parental Lock 3 puzzle. Crashes after 8."],
     1246: ["got_100_dig", "Whether you dug up the rare 100-point hole in the room with the many Lancers.", basicBool],
@@ -1975,18 +1975,18 @@ let flags = {
     1249: ["times_gained_at_ch3", "The number of times your AT and Magic have increased due to leveling up (every ten encounters)."],
     1250: ["jail_dinner_talked", "Whether you've talked to the imprisoned Pippins selling TV Dinners. Alters repeat interaction.", basicBool],
     1251: ["goulden_son_tale", "Progress telling of Goulden Son.", {
-             "0": "Default state",
-             "1": "Interacted with 2",
-             "1.5": "Told of 2",
-             "2": "2 knew of 1",
-             "3": "1 became 3",
-             "4": "Told of 3"
-          }],
+        "0": "Default state",
+        "1": "Interacted with 2",
+        "1.5": "Told of 2",
+        "2": "2 knew of 1",
+        "3": "1 became 3",
+        "4": "Told of 3"
+    }],
     1252: ["goulden_son_destination", "Used to determine which is Goulden Son and which is Goulden Son 2. The one you interact with first after the lights are gone will be Goulden Son.", [
-             "Default state",
-             "Right is Goulden Son 2",
-             "Left is Goulden Son 2"
-          ]],
+        "Default state",
+        "Right is Goulden Son 2",
+        "Left is Goulden Son 2"
+    ]],
     1253: ["got_trash_ch3_8", "Whether you opened the 8th trash can in Chapter 3, with 120 points inside.", basicBool],
     1254: ["stone_lancer_ch3", "Whether you saw Lancer petrified in Chapter 3 (in the room where you get his controllers).", basicBool],
     1255: ["sword_route_kills", "Number of enemies killed using your sword in the Chapter 3 minigames. Appears in Kris's stats."],
@@ -2013,13 +2013,13 @@ let flags = {
     1276: ["gameshow_name_3_backup", "Secondary tracker for the third letter of Kris's name (used for safety with translation).", ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]],
     1277: ["pippins_bonus_stole", "Appears? to be the number of chests looted by Pippinses in Tenna's bonus zone."],
     1278: ["swordroute_soda", "Status of the soda left by Susie after obtaining the Shadow Mantle.", [
-             "Default state",
-             "Soda placed",
-             "Soda collected"
-          ]],
+        "Default state",
+        "Soda placed",
+        "Soda collected"
+    ]],
     1279: ["raise_bat_hard_hiscore", "High score on Raise Up Your Bat, Hard Mode. (Unused in Chapter 3)"],
     1280: ["raise_bat_hard_hirank", "Highest rank on Raise Up Your Bat, Hard Mode. (Unused in Chapter 3)", tennaRanks],
-    
+
 };
 
 for (let i = 0; i < flagCount; i++) {
