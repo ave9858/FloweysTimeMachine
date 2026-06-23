@@ -409,7 +409,7 @@ const plotValues = [
         "125": "Lost Susie and Berdly",
         "140": "Hit hand",
         "150": "Swan ride complete",
-        "160": "Susie rejoined/reached 3F (Weird)",
+        "160": "Susie rejoined/reached 3F",
         "165": "Queen defeated",
         "170": "GIGA Queen skipped",
         "171": "GIGA Queen defeated",
@@ -636,7 +636,7 @@ let flags = {
             "Both candies"
          ]],
     103: ["got_broken_cake", "Whether you took a piece of the Broken Cake.", basicBool],
-    104: ["got_white_ribbon", "Whether you got the White Ribbon."],
+    104: ["got_white_ribbon", "Whether you got the White Ribbon.", basicBool],
     105: ["got_iron_shackle", "Whether you took the Iron Shackle.", basicBool],
     106: ["ate_ch1_moss", "Whether you ate the moss in Chapter 1. Allows you to obtain the Moss Finder title.", basicBool],
     107: ["got_dancer_mint", "Whether you got the Revive Mint from the Scissor Dancers room.", basicBool],
@@ -660,7 +660,7 @@ let flags = {
     125: ["got_dust_fake", "Unused. Intended for obtaining the Revive Dust, but overwritten by 137."],
     126: ["got_trash_$20", "Whether you got 20D$ from the twenty-dollar trash can.", basicBool],
     127: ["got_trash_$80", "Whether you got 80D$ from the eighty-dollar trash can.", basicBool],
-    128: ["got_trash_bagel", "Whether you got a CD Bagel from the CD Bagel trash can.", basicBool],
+    128: ["got_trash_bagel", "Whether you got a CD Bagel from the CD Bagel trash can. Checked as part of darkcandy_check for some reason.", basicBool],
     129: ["got_ragger2", "Whether you got the Ragger2.", basicBool],
     130: ["got_bounce_blade", "Whether you got the Bounce Blade.", basicBool],
     131: ["got_trash_$20_2", "Whether you got 20D$ from the other twenty-dollar trash can.", basicBool],
@@ -913,10 +913,10 @@ let flags = {
             "Saw toys",
             "Not useful"
          ]],
-    281: ["used_glass_alone", "Your Glass usage without Susie around/in Chapter 1.", [
+    281: ["used_glass_alone", "Your Glass usage without Susie around/in Chapter 1. Reset at the start of Chapter 2.", [
             "Default state",
             "Saw through hand",
-            "Not useful (Ch1)"
+            "Not useful (Ch1 only)"
          ]],
     
     290: ["solved_dice_puzzle", "Whether you solved the suits puzzle to obtain Dice Brace.", basicBool],
@@ -973,7 +973,7 @@ let flags = {
             "Alarm playing"
          ]],
     // no 318
-    319: ["ferris_scene_plot", "Tracks how Suselle becomes canon. Returns to 2 after the whole scene?", [
+    319: ["ferris_scene_plot", "Tracks how Suselle becomes canon. Set to 2 if the scene is skipped.", [
             "Default state",
             "On Ferris wheel",
             "Off Ferris wheel",
@@ -998,7 +998,7 @@ let flags = {
     // no 328
     329: ["talked_spamton_knight", "Whether you talked with Spamton about the Knight, changing his talk option to Friends.", basicBool],
     330: ["found_tasque_switch", "Honestly I have no idea but there's a switch here and if you don't flip it it shows a faint hint.", basicBool],
-    331: ["seen_ferris_scene", "Set to 1 after the Ferris wheel scene, even if skipped.", basicBool],
+    331: ["skipped_ferris_scene", "Set to 1 if the Ferris wheel scene was skipped.", basicBool],
     332: ["found_maze_switch", "See 330, but this time one of the objects has 'old' in the name, so it might be unused.", basicBool],
     333: ["solved_agree2all", "Whether you solved the AGREE2ALL puzzle.", basicBool],
     // no 334
@@ -1197,7 +1197,7 @@ let flags = {
             "Rode teacups"
          ]],
     451: ["talked_about_pap", "Whether you talked to Sans about Papyrus in both chapters 1 and 2; talking in Chapter 2 only isn't saved.", basicBool],
-    452: ["told_wrongway", "Whether Noelle questioned if you were going the right way while backtracking further into the trash zone.", basicBool],
+    452: ["told_wrongway", "Whether Noelle questioned if you were going the right way while backtracking further into the trash zone. Weird route only.", basicBool],
     453: ["talked_snowgrave_neo", "Whether you talked to Spamton through the basement door while he was changing forms. He doesn't repeat himself.", basicBool],
     454: ["got_dealmaker", "Whether you spared Spamton NEO. What, you thought that would be in flag 309?", basicBool],
     455: ["ride_with_me", "Whether you said 'Noelle will ride with me' on Snowgrave. Unaccessed.", basicBool],
@@ -1493,6 +1493,7 @@ let flags = {
     744: ["showed_susie_family_photo", "Showed to Susie the old family photo on your fridge.", basicBool],
     745: ["showed_susie_asriel_photo", "Showed to Susie the Asriel photo on your fridge.", basicBool],
     746: ["susie_saw_dragon_book", "Opened the drawer containing How To Draw Dragons in front of Susie.", basicBool],
+    747: ["won_susie_prize", "Interacted with Kris's bed with Susie and got awarded the Susie Prize.", basicBool],
     748: ["cleaned_up_stain", "Cleaned up the stain with Susie in Kris's room.", basicBool],
     750: ["talked_berdly_librarby", "Talked to Berdly at the Librarby.", basicBool],
     751: ["discussed_plans_berdly_librarby", "Discussed plans with Berdly at the Librarby.", basicBool],
@@ -1592,11 +1593,26 @@ let flags = {
     802: ["cafe_bottomleft", "The recruit seated in the bottom-left of the Cafe. Defaults to Hathy.", recruits],
     803: ["cafe_bottomright", "The recruit seated in the bottom-right of the Cafe. Defaults to Rudinn.", recruits],
     
-    810: ["beat_grazing", "Whether you beat the grazing challenge in the Party Dojo.", basicBool],
-    811: ["beat_dojo_clover", "Whether you beat Clover's rematch in the Party Dojo.", basicBool],
-    812: ["beat_tm_says", "Whether you beat the 'Tasque Manager Says' challenge in the Party Dojo.", basicBool],
-    813: ["beat_allstars", "Whether you beat the Ch2 All Stars challenge in the Party Dojo.", basicBool],
-    814: ["beat_joe", "Whether you defeated Jigsaw Joe in the Party Dojo and took his life savings.", basicBool],
+    810: ["beat_grazing", "Whether you beat the grazing challenge in the Party Dojo.", {
+        "0": "Default state",
+        "2": "Won"
+    }],
+    811: ["beat_dojo_clover", "Whether you beat Clover's rematch in the Party Dojo.", {
+        "0": "Default state",
+        "2": "Won"
+    }],
+    812: ["beat_tm_says", "Whether you beat the 'Tasque Manager Says' challenge in the Party Dojo.", {
+        "0": "Default state",
+        "2": "Won"
+    }],
+    813: ["beat_allstars", "Whether you beat the Ch2 All Stars challenge in the Party Dojo.", {
+        "0": "Default state",
+        "2": "Won"
+    }],
+    814: ["beat_joe", "Whether you defeated Jigsaw Joe in the Party Dojo and took his life savings.", {
+        "0": "Default state",
+        "2": "Won"
+    }],
 
     815: ["beat_weather_duo", "Whether you defeated Lanino & Elnina in the chapter 4 Party/Love Dojo.", {
         "0": "Default state",
@@ -1849,7 +1865,7 @@ let flags = {
           ]],
     1002: ["fought_shadowmantle", "Whether you've started the Shadow Mantle fight. Speeds up repeat fights, as your death isn't a real Game Over and doesn't reload a save.", basicBool],
     1003: ["board_losses", "Number of Game Overs attained in Tenna's show."],
-    1004: ["got_crowd_treasure", "Whether you opened the chest in the lower-left corner of that maze with Zapper+Shuttah fights."],
+    1004: ["got_crowd_treasure", "Whether you opened the chest in the lower-left corner of that maze with Zapper+Shuttah fights.", basicBool],
     1005: ["found_maze_crowd", "Whether you triggered the cheering crowd in the upper-right corner of that maze with Zapper+Shuttah fights.", basicBool],
     1006: ["forest_cut_progress", "Number of repeating forest rooms passed through looking for the Ice Key."],
     1007: ["swordroute_evict", "Whether you've (recently) done something to get yourself kicked out of the original game. Like dying.", basicBool],
@@ -2068,7 +2084,7 @@ let flags = {
     1118: ["last_minigame_points", "Seems to be? the number of points earned in the last PHYSICAL CHALLENGE, tracked into the overall round evaluation."],
     1119: ["cooler_beg_count", "Number of times begged for mercy from Watercooler. Alters repeat flavortext."],
     
-    1122: ["board_key_count_2", "Board 1 key count. Used to award bonuses for extra keys. Also incremented if you buy the useless board 2 key.", basicBool],
+    1122: ["board_key_count_2", "Board 1 key count. Used to award bonuses for extra keys. Also incremented if you buy the useless board 2 key."],
     1123: ["entered_parent_0", "Whether you've entered the room before the first Parental Lock, acknowledged by the party.", basicBool],
     1124: ["tenna_falling_stuff", "What Tenna last called the falling objects on Board 1. Alters Board 2 dialogue.", [
              "Default state",
@@ -2104,7 +2120,11 @@ let flags = {
              "Did not flirt",
              "Checked curtain after flirting"
           ]],
-    // 1145?
+    1145: ["watercooler_chest_state", "Status of the chest with 500 points in the second watercooler room. The second state is unused.", [
+             "Default state",
+             "No room for points (not possible)",
+             "Got 500 Points"
+    ]],
     1146: ["interacted_curtain_cooler", "Whether you interacted with the curtain after fighting the second Watercooler. Unaccessed?", basicBool],
     1147: ["lawnmower_beat_paper", "Whether you used the lawnmower to destroy the Shadowmen's contracts. Earns their gratitude if not previously LOST.", basicBool],
     1148: ["rouxls_snacks_ch3", "Rouxls's progress when he shows up with the weather duo.", [
